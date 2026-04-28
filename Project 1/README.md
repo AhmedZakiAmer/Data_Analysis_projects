@@ -34,5 +34,5 @@ dataset from +15K rows contain different columns the data time between 6-2016 to
 # Limitations & Future Improvements:
     1- Dataset contains 15K rows which limits statistical significance
     2- limited dates to track patterns
-    3- no date about castomers so I can't apply analyze on what product sold why
+    3- no date about castomers so I can't analyze on what product sold why
     4- no data about which Items ordered together to try increse AOV based on data
