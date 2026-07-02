@@ -1,0 +1,229 @@
+table 'fact vInventory'
+	lineageTag: ea5d8a22-37a5-4874-8402-0b70136d638f
+
+	column InventoryKey
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: fe79537a-8a52-495d-9124-762756f9f5f2
+		isDefaultLabel
+		summarizeBy: count
+		sourceColumn: InventoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: af57f371-787f-4e10-bc05-16863ea62e90
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column InventoryDate
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: dd290570-746d-4dc8-9e7d-c619f50c701a
+		summarizeBy: none
+		sourceColumn: InventoryDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column StoreKey
+		dataType: int64
+		isHidden
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e3349a5c-ced1-4ddb-904c-adf94533a573
+		summarizeBy: none
+		sourceColumn: StoreKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductKey
+		dataType: int64
+		isHidden
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 162af6f9-d0c0-458e-9829-cca78f515ae7
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrencyKey
+		dataType: int64
+		isHidden
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e8b618f2-1388-430e-9ed2-c448fb9983df
+		summarizeBy: none
+		sourceColumn: CurrencyKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column OnHandQuantity
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 1cf9c78a-8c7f-4444-93d7-4b16f2bdebec
+		summarizeBy: sum
+		sourceColumn: OnHandQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column OnOrderQuantity
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5043dc96-7e2b-464f-a497-4e68c08fc32f
+		summarizeBy: sum
+		sourceColumn: OnOrderQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column SafetyStockQuantity
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 971c021f-441f-4ab0-97f6-72acf9d941fe
+		summarizeBy: sum
+		sourceColumn: SafetyStockQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column InventoryValue
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: money
+		lineageTag: 7f8106e1-d1ad-48fc-8c1c-55d4e2b32d48
+		summarizeBy: sum
+		sourceColumn: InventoryValue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column OnOrderValue
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: money
+		lineageTag: 01eb7047-c9bb-4e27-89f5-06055a7822b5
+		summarizeBy: sum
+		sourceColumn: OnOrderValue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column StockCoverageRatio
+		dataType: double
+		sourceProviderType: decimal(10, 4)
+		lineageTag: d3cd4a1b-4031-4901-8f60-9cf494ad92cc
+		summarizeBy: sum
+		sourceColumn: StockCoverageRatio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column StockStatus
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(20)
+		lineageTag: 8dea2934-7aa4-4fb1-9b70-07a2f5fae4b9
+		summarizeBy: none
+		sourceColumn: StockStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column DaysInStock
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: fc0e5405-8c4c-4b82-bffa-f758e9006fb5
+		summarizeBy: sum
+		sourceColumn: DaysInStock
+
+		annotation SummarizationSetBy = Automatic
+
+	column MinDayInStock
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 00299d06-5df8-4e40-a339-c25ebefb1b81
+		summarizeBy: sum
+		sourceColumn: MinDayInStock
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaxDayInStock
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 82cc4c52-98a2-49b2-a96d-f46980317bcb
+		summarizeBy: sum
+		sourceColumn: MaxDayInStock
+
+		annotation SummarizationSetBy = Automatic
+
+	column Aging
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 8bb9f271-4bdc-4eb4-a50b-81bcb34d87c8
+		summarizeBy: sum
+		sourceColumn: Aging
+
+		annotation SummarizationSetBy = Automatic
+
+	column AgingTier
+		dataType: string
+		sourceProviderType: varchar(25)
+		lineageTag: 87918e65-4896-4311-a035-c7908d81addd
+		summarizeBy: none
+		sourceColumn: AgingTier
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCurrentSnapshot
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 31b929b8-2562-4adf-9256-68f26bba6f0f
+		summarizeBy: sum
+		sourceColumn: IsCurrentSnapshot
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'fact vInventory' = m
+		mode: directQuery
+		source =
+				let
+				  Source = Sql.Database("localhost\SQLEXPRESS", "ContosoRetailDW"),
+				  #"Navigation 1" = Source{[Schema = "fact", Item = "vInventory"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+

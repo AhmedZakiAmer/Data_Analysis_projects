@@ -1,0 +1,66 @@
+table 'fact vOrderPayment'
+	lineageTag: 9a6f3193-55a2-4251-8119-0fa5fc833dee
+
+	column SalesOrderNumber
+		dataType: string
+		lineageTag: 5a9a1883-1226-40b2-9754-75b6964eb07c
+		summarizeBy: none
+		sourceColumn: SalesOrderNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymentMethodKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 9944cdcf-2434-46fa-94e6-745e7816c10b
+		summarizeBy: none
+		sourceColumn: PaymentMethodKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 4ac88045-39cd-4a86-b18c-465b522fcdc8
+		summarizeBy: count
+		sourceColumn: OrderDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 51a4b799-92d1-4e1c-b7d3-36f7b154e865
+		summarizeBy: none
+		sourceColumn: OrderDate
+
+		variation Variation
+			isDefault
+			relationship: b234c63a-35a3-4d47-86f7-49e2ef8195d4
+			defaultHierarchy: LocalDateTable_e81d0de9-343a-4c2b-b814-44521b56decc.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column OrderValue
+		dataType: double
+		lineageTag: 424f56c0-2d7e-4580-a907-353b593dee48
+		summarizeBy: sum
+		sourceColumn: OrderValue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'fact vOrderPayment' = m
+		mode: import
+		source =
+				let
+				  Source = Sql.Database("localhost\SQLEXPRESS", "ContosoRetailDW"),
+				  #"Navigation 1" = Source{[Schema = "fact", Item = "vOrderPayment"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+

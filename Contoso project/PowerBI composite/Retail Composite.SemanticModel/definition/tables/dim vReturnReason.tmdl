@@ -1,0 +1,77 @@
+table 'dim vReturnReason'
+	lineageTag: b9708215-5083-41b3-9476-4f34d8e8e168
+
+	column ReturnReasonKey
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e118710b-1d93-4a32-994a-27ad0655602f
+		isDefaultLabel
+		summarizeBy: none
+		sourceColumn: ReturnReasonKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReturnReasonCode
+		dataType: string
+		isNullable: false
+		sourceProviderType: nvarchar(10)
+		lineageTag: fedc2cdb-d2c0-4dd8-829e-e2de07bbc9b7
+		summarizeBy: none
+		sourceColumn: ReturnReasonCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReturnReasonName
+		dataType: string
+		isNullable: false
+		sourceProviderType: nvarchar(100)
+		lineageTag: a5068ce1-7c36-45fe-bcc2-2dcb4442f759
+		summarizeBy: none
+		sourceColumn: ReturnReasonName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReturnReasonCategory
+		dataType: string
+		isNullable: false
+		sourceProviderType: nvarchar(50)
+		lineageTag: 7f89b2b1-9786-46f3-8de0-b35ce46ca925
+		summarizeBy: none
+		sourceColumn: ReturnReasonCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsOperationalFailure
+		dataType: boolean
+		isNullable: false
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: b0a56808-aab7-48fe-b266-2cafb9cb3fd4
+		summarizeBy: none
+		sourceColumn: IsOperationalFailure
+
+		annotation SummarizationSetBy = Automatic
+
+	column AppliesTo
+		dataType: string
+		isNullable: false
+		sourceProviderType: nvarchar(20)
+		lineageTag: bf606d73-5cac-4f69-9ed6-c20c0fcd79e9
+		summarizeBy: none
+		sourceColumn: AppliesTo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dim vReturnReason' = m
+		mode: dual
+		source =
+				let
+				  Source = Sql.Database("localhost\SQLEXPRESS", "ContosoRetailDW"),
+				  #"Navigation 1" = Source{[Schema = "dim", Item = "vReturnReason"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+

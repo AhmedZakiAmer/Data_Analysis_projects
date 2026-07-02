@@ -1,0 +1,207 @@
+table 'fact vReturns'
+	lineageTag: 1a39a13b-a5ee-48b4-9aa0-0adc13f3f8ba
+
+	column ReturnEventKey
+		dataType: int64
+		formatString: 0
+		lineageTag: ae12cc2c-4492-49f9-b877-b56ab1a6662f
+		summarizeBy: count
+		sourceColumn: ReturnEventKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReturnEventID
+		dataType: string
+		lineageTag: ae5248f2-3e8c-4b18-b41c-7a8f39c0f0ec
+		summarizeBy: none
+		sourceColumn: ReturnEventID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReturnDateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 25cb6294-0660-466b-8145-03c9301fd07d
+		summarizeBy: count
+		sourceColumn: ReturnDateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReturnDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 53d3d8cf-24fc-4a59-b6e9-daba3705c6b1
+		summarizeBy: none
+		sourceColumn: ReturnDate
+
+		variation Variation
+			isDefault
+			relationship: 763d87a9-bb5a-4947-91bf-409d10761272
+			defaultHierarchy: LocalDateTable_0194f768-e649-43a3-9c36-124e8cfa295c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column OriginalSaleDateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 9515af1f-269d-46c5-8357-fb6316b80bc3
+		summarizeBy: count
+		sourceColumn: OriginalSaleDateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column OriginalSaleDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3c8d3224-25af-47fa-be6d-4e5d668e2723
+		summarizeBy: none
+		sourceColumn: OriginalSaleDate
+
+		variation Variation
+			isDefault
+			relationship: 60828ba8-e9ba-447e-8c29-37736423c9d8
+			defaultHierarchy: LocalDateTable_d09f1fab-aab0-4a26-af30-b55e541c845c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column CustomerKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 2cb282dc-2c14-4393-9790-fe1dbb35163e
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 15524f6c-039c-4ed9-9954-048aa3b2042f
+		summarizeBy: none
+		sourceColumn: StoreKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: e071dfa0-d292-45a8-a35b-2b65bfae16b1
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReturnReasonKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: ba954a7a-9add-4be3-9b5b-613888742364
+		summarizeBy: none
+		sourceColumn: ReturnReasonKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrderNumber
+		dataType: string
+		lineageTag: 5853bcf9-43e8-4681-bbad-ed36bc60f715
+		summarizeBy: none
+		sourceColumn: SalesOrderNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrderLineNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 129aa343-a491-4580-bf60-cd7d3dabc3be
+		summarizeBy: sum
+		sourceColumn: SalesOrderLineNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReturnQuantity
+		dataType: int64
+		formatString: 0
+		lineageTag: dca5f481-ca0b-479d-8c8f-a3e5eee45396
+		summarizeBy: sum
+		sourceColumn: ReturnQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReturnAmount
+		dataType: double
+		lineageTag: a9a75de3-1b9a-48e5-9cbd-fe0f2f418a7d
+		summarizeBy: sum
+		sourceColumn: ReturnAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RefundAmount
+		dataType: double
+		lineageTag: 4c47de7d-43fc-4bce-9f20-fef8a1fc733b
+		summarizeBy: sum
+		sourceColumn: RefundAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IsRefunded
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 127b2395-e920-4ceb-8ab6-c5770891dbdf
+		summarizeBy: none
+		sourceColumn: IsRefunded
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReturnLagDays
+		dataType: int64
+		formatString: 0
+		lineageTag: 78d1b50a-a007-4577-a287-c592aaf1b68c
+		summarizeBy: sum
+		sourceColumn: ReturnLagDays
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReturnChannel
+		dataType: string
+		lineageTag: 3fb083c7-4387-4aec-9611-3dc3ebaedc01
+		summarizeBy: none
+		sourceColumn: ReturnChannel
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'fact vReturns' = m
+		mode: import
+		source =
+				let
+				  Source = Sql.Database("localhost\SQLEXPRESS", "ContosoRetailDW"),
+				  #"Navigation 1" = Source{[Schema = "fact", Item = "vReturns"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+

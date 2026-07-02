@@ -1,0 +1,151 @@
+table 'fact vSalesQuota'
+	lineageTag: 5282dd72-1c9b-475b-8cb7-22b678c43755
+
+	column DateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 0fdbf9b8-ace4-4428-9ea7-6ee4643240da
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesQuotaDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 428fb064-29cd-4f7a-a0c0-c68b918451f1
+		summarizeBy: none
+		sourceColumn: SalesQuotaDate
+
+		variation Variation
+			isDefault
+			relationship: 705c21ce-3deb-487a-a07b-d86861c9cb37
+			defaultHierarchy: LocalDateTable_d2890beb-b4bc-4a33-9c84-b1745f67212b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column StoreKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 2144c3ef-1042-4f15-a0e8-10efad42116a
+		summarizeBy: none
+		sourceColumn: StoreKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 67ba958f-cc7d-49b7-9337-ff2df9442d5f
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrencyKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a9b10019-0a14-4074-a0c4-01601b01b75c
+		summarizeBy: none
+		sourceColumn: CurrencyKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ChannelName
+		dataType: string
+		lineageTag: d0faeb03-060d-4136-baff-a79edcb38451
+		summarizeBy: none
+		sourceColumn: ChannelName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ChannelDescription
+		dataType: string
+		lineageTag: ccf7d85f-8514-41e9-88f0-aa08c23dcc64
+		summarizeBy: none
+		sourceColumn: ChannelDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column ScenarioName
+		dataType: string
+		lineageTag: c25168d0-6138-45c6-86f0-161e95f7aef1
+		summarizeBy: none
+		sourceColumn: ScenarioName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ScenarioDescription
+		dataType: string
+		lineageTag: 4c8d19a4-9286-4477-a606-e8a73ec02e28
+		summarizeBy: none
+		sourceColumn: ScenarioDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesQuantityQuota
+		dataType: int64
+		formatString: 0
+		lineageTag: 6fc61a39-4c22-4504-8b22-f1e66f30bdbc
+		summarizeBy: sum
+		sourceColumn: SalesQuantityQuota
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesAmountQuota
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: e2004e57-9e6e-43d6-baab-d62e09948d71
+		summarizeBy: sum
+		sourceColumn: SalesAmountQuota
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column GrossMarginQuota
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: c5d5ebf4-6c3b-4e95-845a-c56dc60fbee7
+		summarizeBy: sum
+		sourceColumn: GrossMarginQuota
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column GrossMarginQuotaPct
+		dataType: double
+		lineageTag: f8821d54-3475-4859-aec8-deb280cda54d
+		summarizeBy: sum
+		sourceColumn: GrossMarginQuotaPct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'fact vSalesQuota' = m
+		mode: import
+		source =
+				let
+				  Source = Sql.Database("localhost\SQLEXPRESS", "ContosoRetailDW"),
+				  #"Navigation 1" = Source{[Schema = "fact", Item = "vSalesQuota"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+

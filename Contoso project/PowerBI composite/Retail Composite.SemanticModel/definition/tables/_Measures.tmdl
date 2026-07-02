@@ -1,0 +1,40 @@
+table _Measures
+	lineageTag: 8fafed5b-16f5-4e09-b673-5257e852af67
+
+	measure 'Total Revenue_Online' = SUM('fact vOnlineSales'[SalesAmount])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: CFO
+		lineageTag: 7d8e5980-2962-41e6-8cb9-9ca9854d7aba
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure Revnue_stores = SUM('fact vStoreSales'[SalesAmount])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: CFO
+		lineageTag: 1002199d-49c0-435a-9035-c3ca52d3ae33
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Total Revenue' =
+			
+			SUM ( 'fact vStoreSales'[SalesAmount] )
+			    + SUM ( 'fact vOnlineSales'[SalesAmount] )
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 24e40462-3e23-4952-bbe6-2110fa1ea399
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				  Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMjRUio0FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				  #"Changed column type" = Table.TransformColumnTypes(Source, {{"Column1", Int64.Type}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed column type",{"Column1"})
+				in
+				  #"Removed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

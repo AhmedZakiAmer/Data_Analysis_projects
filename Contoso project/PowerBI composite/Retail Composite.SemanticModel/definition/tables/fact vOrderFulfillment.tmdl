@@ -1,0 +1,182 @@
+table 'fact vOrderFulfillment'
+	lineageTag: c2862491-fe2d-4607-8264-015c8a0a70b2
+
+	column SalesOrderNumber
+		dataType: string
+		lineageTag: 4595bddf-bef8-4c87-84ae-c8789261af7c
+		summarizeBy: none
+		sourceColumn: SalesOrderNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderDateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 1f90cb88-39e4-41da-8c57-1e3b67c605c6
+		summarizeBy: count
+		sourceColumn: OrderDateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 67043661-eae6-463b-8781-83de666c7195
+		summarizeBy: none
+		sourceColumn: OrderDate
+
+		variation Variation
+			isDefault
+			relationship: ba02ad8f-c9e2-482a-ba71-866b7a0b0148
+			defaultHierarchy: LocalDateTable_50d4e2bb-35c7-4897-a352-3f68befe3cb1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ShipDateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 7cbce597-6c3a-4715-8ad8-86a95eb2b141
+		summarizeBy: count
+		sourceColumn: ShipDateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShipDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a080aba2-2fb6-44ec-8162-42fcc78d0f39
+		summarizeBy: none
+		sourceColumn: ShipDate
+
+		variation Variation
+			isDefault
+			relationship: b79616cb-6597-4ea8-b43a-68cf50627dc1
+			defaultHierarchy: LocalDateTable_93532f1e-36ba-4f1c-9636-8d7a34e4f92d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DeliveryDateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: f0b67769-dd25-4fdc-bfa6-9ef4c2b0f3c9
+		summarizeBy: none
+		sourceColumn: DeliveryDateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeliveryDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 89d3ae5f-54d8-436f-b06d-cc4485533caa
+		summarizeBy: none
+		sourceColumn: DeliveryDate
+
+		variation Variation
+			isDefault
+			relationship: 7186e557-8f06-4a89-a4bf-4c1636225860
+			defaultHierarchy: LocalDateTable_f42ed8b2-8112-4ad7-b668-741b56a8aadd.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FulfillmentStatus
+		dataType: string
+		lineageTag: 7a2d8543-fe75-4e77-ba2b-9953049c3eeb
+		summarizeBy: none
+		sourceColumn: FulfillmentStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShippingMethod
+		dataType: string
+		lineageTag: 7303153d-937f-41a1-820f-2b4753c446bf
+		summarizeBy: none
+		sourceColumn: ShippingMethod
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProcessingDays
+		dataType: int64
+		formatString: 0
+		lineageTag: a5b8cf17-83f0-4db7-8fcf-de99525cbe98
+		summarizeBy: sum
+		sourceColumn: ProcessingDays
+
+		annotation SummarizationSetBy = Automatic
+
+	column TransitDays
+		dataType: int64
+		formatString: 0
+		lineageTag: 4701584d-6e67-4770-84d2-627f128398dc
+		summarizeBy: sum
+		sourceColumn: TransitDays
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalFulfillmentDays
+		dataType: int64
+		formatString: 0
+		lineageTag: 3f7fbe03-66e8-4a7e-a933-642797fe0bd1
+		summarizeBy: sum
+		sourceColumn: TotalFulfillmentDays
+
+		annotation SummarizationSetBy = Automatic
+
+	column SLAStatus
+		dataType: string
+		lineageTag: 652a6007-ab71-4488-a24d-f4c33c502d9f
+		summarizeBy: none
+		sourceColumn: SLAStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column FulfillmentTier
+		dataType: string
+		lineageTag: 7db481be-9ec1-4ebe-beb0-b3ec8ceb7262
+		summarizeBy: none
+		sourceColumn: FulfillmentTier
+
+		annotation SummarizationSetBy = Automatic
+
+	column DelayRootCause
+		dataType: string
+		lineageTag: b9e666be-85bf-4dff-8a06-2475748eb708
+		summarizeBy: none
+		sourceColumn: DelayRootCause
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsOnTime
+		dataType: int64
+		formatString: 0
+		lineageTag: 71218aba-2d5e-49a2-9a78-77063bb604d1
+		summarizeBy: sum
+		sourceColumn: IsOnTime
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'fact vOrderFulfillment' = m
+		mode: import
+		source =
+				let
+				  Source = Sql.Database("localhost\SQLEXPRESS", "ContosoRetailDW"),
+				  #"Navigation 1" = Source{[Schema = "fact", Item = "vOrderFulfillment"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+

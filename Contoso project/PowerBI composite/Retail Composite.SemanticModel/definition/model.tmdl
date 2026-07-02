@@ -1,0 +1,53 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["dim vAcquisitionChannel","dim vChannel","dim vCurrency","dim vCustomer","dim vDate","dim vEmployee","dim vPaymentMethod","dim vProduct","dim vPromotion","dim vReturnReason","dim vStore","fact vInventory","fact vOnlineSales","fact vCustomerAcquisition","fact vCustomerSurvey","fact vExchangeRate","fact vMarketingSpend","fact vOrderFulfillment","fact vOrderPayment","fact vReturns","fact vSalesQuota","fact vStoreSales","_Measures"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 'dim vAcquisitionChannel'
+ref table 'dim vChannel'
+ref table 'dim vCurrency'
+ref table 'dim vCustomer'
+ref table 'dim vDate'
+ref table 'dim vEmployee'
+ref table 'dim vPaymentMethod'
+ref table 'dim vProduct'
+ref table 'dim vPromotion'
+ref table 'dim vReturnReason'
+ref table 'dim vStore'
+ref table 'fact vInventory'
+ref table 'fact vOnlineSales'
+ref table 'fact vCustomerAcquisition'
+ref table DateTableTemplate_3668dbba-48ff-4930-a8ff-fd05b6b9ee8f
+ref table LocalDateTable_ee0eb81f-4cc8-4bfe-b8ed-6ec8b7bc79ab
+ref table 'fact vCustomerSurvey'
+ref table LocalDateTable_090a1313-382e-4c3d-bf7f-1f10ba701df4
+ref table 'fact vExchangeRate'
+ref table LocalDateTable_9cc4ec3b-0e82-4598-98b7-834ed6941f40
+ref table 'fact vMarketingSpend'
+ref table LocalDateTable_2ecc04b4-da32-493c-98fa-da59e51319ba
+ref table 'fact vOrderFulfillment'
+ref table LocalDateTable_50d4e2bb-35c7-4897-a352-3f68befe3cb1
+ref table LocalDateTable_93532f1e-36ba-4f1c-9636-8d7a34e4f92d
+ref table LocalDateTable_f42ed8b2-8112-4ad7-b668-741b56a8aadd
+ref table 'fact vOrderPayment'
+ref table LocalDateTable_e81d0de9-343a-4c2b-b814-44521b56decc
+ref table 'fact vReturns'
+ref table LocalDateTable_0194f768-e649-43a3-9c36-124e8cfa295c
+ref table LocalDateTable_d09f1fab-aab0-4a26-af30-b55e541c845c
+ref table 'fact vSalesQuota'
+ref table LocalDateTable_d2890beb-b4bc-4a33-9c84-b1745f67212b
+ref table 'fact vStoreSales'
+ref table LocalDateTable_4bc54fb1-3572-43f4-924a-35d06598a2b4
+ref table _Measures
+
+ref cultureInfo en-US
+

@@ -1,0 +1,235 @@
+relationship 4a4a53dd-ac56-4c32-b122-a4ce01a081eb
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'fact vCustomerAcquisition'.AcquisitionDate
+	toColumn: LocalDateTable_ee0eb81f-4cc8-4bfe-b8ed-6ec8b7bc79ab.Date
+
+relationship c2ffd6aa-f594-44b2-b657-ebdf0b97e883
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'fact vCustomerSurvey'.SurveyDate
+	toColumn: LocalDateTable_090a1313-382e-4c3d-bf7f-1f10ba701df4.Date
+
+relationship c42977ff-3af8-4904-b5c5-fff05b396dc6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'fact vExchangeRate'.RateDate
+	toColumn: LocalDateTable_9cc4ec3b-0e82-4598-98b7-834ed6941f40.Date
+
+relationship 82479494-5a11-4e63-89e8-facf5e51d29a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'fact vMarketingSpend'.MonthStartDate
+	toColumn: LocalDateTable_2ecc04b4-da32-493c-98fa-da59e51319ba.Date
+
+relationship ba02ad8f-c9e2-482a-ba71-866b7a0b0148
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'fact vOrderFulfillment'.OrderDate
+	toColumn: LocalDateTable_50d4e2bb-35c7-4897-a352-3f68befe3cb1.Date
+
+relationship b79616cb-6597-4ea8-b43a-68cf50627dc1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'fact vOrderFulfillment'.ShipDate
+	toColumn: LocalDateTable_93532f1e-36ba-4f1c-9636-8d7a34e4f92d.Date
+
+relationship 7186e557-8f06-4a89-a4bf-4c1636225860
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'fact vOrderFulfillment'.DeliveryDate
+	toColumn: LocalDateTable_f42ed8b2-8112-4ad7-b668-741b56a8aadd.Date
+
+relationship b234c63a-35a3-4d47-86f7-49e2ef8195d4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'fact vOrderPayment'.OrderDate
+	toColumn: LocalDateTable_e81d0de9-343a-4c2b-b814-44521b56decc.Date
+
+relationship 763d87a9-bb5a-4947-91bf-409d10761272
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'fact vReturns'.ReturnDate
+	toColumn: LocalDateTable_0194f768-e649-43a3-9c36-124e8cfa295c.Date
+
+relationship 60828ba8-e9ba-447e-8c29-37736423c9d8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'fact vReturns'.OriginalSaleDate
+	toColumn: LocalDateTable_d09f1fab-aab0-4a26-af30-b55e541c845c.Date
+
+relationship 705c21ce-3deb-487a-a07b-d86861c9cb37
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'fact vSalesQuota'.SalesQuotaDate
+	toColumn: LocalDateTable_d2890beb-b4bc-4a33-9c84-b1745f67212b.Date
+
+relationship 9377d51e-acf5-488a-b70b-dadabbeebf57
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'fact vStoreSales'.SaleDate
+	toColumn: LocalDateTable_4bc54fb1-3572-43f4-924a-35d06598a2b4.Date
+
+relationship AutoDetected_8ff184ce-6597-4536-a2b9-e83d285ae0db
+	fromColumn: 'fact vCustomerSurvey'.CustomerKey
+	toColumn: 'fact vCustomerAcquisition'.CustomerKey
+
+relationship AutoDetected_3c767dd3-3a63-49a0-abc3-cb6fa4885f60
+	fromColumn: 'fact vReturns'.CustomerKey
+	toColumn: 'fact vCustomerAcquisition'.CustomerKey
+
+relationship AutoDetected_4c077b00-3f5d-452d-8d13-9e7cdb545ee9
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'fact vOrderPayment'.SalesOrderNumber
+	toColumn: 'fact vOrderFulfillment'.SalesOrderNumber
+
+relationship AutoDetected_93c1f7c0-1ba9-4324-8610-d19b442b0f3a
+	fromColumn: 'fact vReturns'.SalesOrderNumber
+	toColumn: 'fact vOrderFulfillment'.SalesOrderNumber
+
+relationship aa7a3176-e563-307c-421d-fc553c947794
+	fromColumn: 'fact vStoreSales'.CurrencyKey
+	toColumn: 'dim vCurrency'.CurrencyKey
+
+relationship bc966830-de2d-f3d2-5749-390801b588a5
+	fromColumn: 'fact vStoreSales'.ChannelKey
+	toColumn: 'dim vChannel'.ChannelKey
+
+relationship e427d99c-6182-f2cd-81f8-e2352ee91437
+	fromColumn: 'fact vStoreSales'.DateKey
+	toColumn: 'dim vDate'.DateKey
+
+relationship 011e52dd-ebf7-19b3-6366-ad389cde5cb2
+	fromColumn: 'fact vStoreSales'.StoreKey
+	toColumn: 'dim vStore'.StoreKey
+
+relationship dd3d38a5-3706-50b3-4b4a-2c606a969e47
+	fromColumn: 'fact vStoreSales'.PromotionKey
+	toColumn: 'dim vPromotion'.PromotionKey
+
+relationship 35f54a09-dab7-12d1-6ebc-27a72dc03a8d
+	fromColumn: 'fact vStoreSales'.ProductKey
+	toColumn: 'dim vProduct'.ProductKey
+
+relationship 501654be-0bfb-a5e2-7715-d7e22457b48e
+	fromColumn: 'fact vSalesQuota'.CurrencyKey
+	toColumn: 'dim vCurrency'.CurrencyKey
+
+relationship 463e8df7-96b1-6ac5-aaa8-761bdd714a55
+	fromColumn: 'fact vSalesQuota'.DateKey
+	toColumn: 'dim vDate'.DateKey
+
+relationship 639bba43-2b12-e2b3-74b3-347923c3e149
+	fromColumn: 'fact vSalesQuota'.ProductKey
+	toColumn: 'dim vProduct'.ProductKey
+
+relationship b32280a2-c6f9-879e-4a1b-a53f47ffcae1
+	fromColumn: 'fact vSalesQuota'.StoreKey
+	toColumn: 'dim vStore'.StoreKey
+
+relationship 4c8386be-9db2-5ef7-94e9-d0508c6cc150
+	fromColumn: 'fact vReturns'.StoreKey
+	toColumn: 'dim vStore'.StoreKey
+
+relationship 5bef2e2c-37ae-520f-dd5a-d4627539bf6a
+	fromColumn: 'fact vReturns'.ReturnReasonKey
+	toColumn: 'dim vReturnReason'.ReturnReasonKey
+
+relationship d5548757-9697-2ca2-5325-3ec6b092c70d
+	fromColumn: 'fact vReturns'.CustomerKey
+	toColumn: 'dim vCustomer'.CustomerKey
+
+relationship a9bb4567-3e7c-1a33-9f3e-f526534660f9
+	fromColumn: 'fact vReturns'.ProductKey
+	toColumn: 'dim vProduct'.ProductKey
+
+relationship af6a8ce4-5194-b63e-5cd6-2a2da775a721
+	isActive: false
+	fromColumn: 'fact vOrderPayment'.OrderDateKey
+	toColumn: 'dim vDate'.DateKey
+
+relationship 89baae25-1d9c-282b-7688-082b1e2969f0
+	fromColumn: 'fact vOrderFulfillment'.DeliveryDateKey
+	toColumn: 'dim vDate'.DateKey
+
+relationship b309d9ea-41b1-18fd-92a9-33b48b54faa5
+	isActive: false
+	fromColumn: 'fact vOrderFulfillment'.OrderDateKey
+	toColumn: 'dim vDate'.DateKey
+
+relationship 7040e38b-82f5-5200-55a6-2d00de0b3025
+	isActive: false
+	fromColumn: 'fact vOrderFulfillment'.ShipDateKey
+	toColumn: 'dim vDate'.DateKey
+
+relationship eab2403c-68a4-e17f-d0e6-56d0700f05f8
+	fromColumn: 'fact vOnlineSales'.CurrencyKey
+	toColumn: 'dim vCurrency'.CurrencyKey
+
+relationship 70f96e99-3aa9-e5b0-bd9e-b853cb5828e4
+	fromColumn: 'fact vOnlineSales'.CustomerKey
+	toColumn: 'dim vCustomer'.CustomerKey
+
+relationship cb78fa92-8f30-f7aa-2500-6da2e37ba5d7
+	fromColumn: 'fact vOnlineSales'.DateKey
+	toColumn: 'dim vDate'.DateKey
+
+relationship fdc081dc-c789-d177-ca75-9b5abf504e49
+	fromColumn: 'fact vOnlineSales'.ProductKey
+	toColumn: 'dim vProduct'.ProductKey
+
+relationship 1d483fd1-57d0-ee29-bc42-5b902b86d1ea
+	fromColumn: 'fact vOnlineSales'.PromotionKey
+	toColumn: 'dim vPromotion'.PromotionKey
+
+relationship 3e4f43cc-45f6-7110-8f56-3e34bb52eb3b
+	fromColumn: 'fact vOnlineSales'.StoreKey
+	toColumn: 'dim vStore'.StoreKey
+
+relationship 0db7c256-da5f-86aa-7a14-ca8deb74ca99
+	fromColumn: 'fact vMarketingSpend'.AcquisitionChannelKey
+	toColumn: 'dim vAcquisitionChannel'.AcquisitionChannelKey
+
+relationship 31efb078-e6e0-d261-7223-2c699f0b425c
+	fromColumn: 'fact vInventory'.CurrencyKey
+	toColumn: 'dim vCurrency'.CurrencyKey
+
+relationship 02818267-6015-b0e6-5e1d-7e0c0ef57798
+	fromColumn: 'fact vInventory'.DateKey
+	toColumn: 'dim vDate'.DateKey
+
+relationship 65a1eff2-d1bc-13fc-656b-ec988051dcc8
+	fromColumn: 'fact vInventory'.ProductKey
+	toColumn: 'dim vProduct'.ProductKey
+
+relationship f241c2cb-88e8-fb4d-2fff-6f3aa82643c7
+	fromColumn: 'fact vInventory'.StoreKey
+	toColumn: 'dim vStore'.StoreKey
+
+relationship 767e9f63-e673-411c-144b-5bd22b7deada
+	fromColumn: 'fact vExchangeRate'.CurrencyKey
+	toColumn: 'dim vCurrency'.CurrencyKey
+
+relationship 2cc25c83-fbb0-3146-edf9-2af170251e55
+	fromColumn: 'fact vExchangeRate'.DateKey
+	toColumn: 'dim vDate'.DateKey
+
+relationship 257d5cda-14a7-77b9-0af4-27940e61cd62
+	fromColumn: 'fact vCustomerSurvey'.CustomerKey
+	toColumn: 'dim vCustomer'.CustomerKey
+
+relationship ecb24ac1-7a3c-0400-83b2-c120ec69eacd
+	fromColumn: 'fact vCustomerSurvey'.SurveyDateKey
+	toColumn: 'dim vDate'.DateKey
+
+relationship 31a4a82d-2645-5744-f98e-ec7f3155cb4e
+	fromColumn: 'fact vCustomerAcquisition'.AcquisitionChannelKey
+	toColumn: 'dim vAcquisitionChannel'.AcquisitionChannelKey
+
+relationship 2939b9d5-715b-53b9-d918-2b213b404ef1
+	isActive: false
+	fromColumn: 'fact vReturns'.ReturnDateKey
+	toColumn: 'dim vDate'.DateKey
+
+relationship f47e9f9a-d53c-b07b-ed04-a9d58292a11c
+	isActive: false
+	fromColumn: 'fact vReturns'.OriginalSaleDateKey
+	toColumn: 'dim vDate'.DateKey
+
+relationship 137c6f1b-2b92-3cec-c156-e4e066087a0e
+	fromColumn: 'fact vOrderPayment'.PaymentMethodKey
+	toColumn: 'dim vPaymentMethod'.PaymentMethodKey
+
+relationship f6ff07fd-71bd-ce9f-511d-815670e3653d
+	fromColumn: 'fact vMarketingSpend'.MonthStartDateKey
+	toColumn: 'dim vDate'.DateKey
+

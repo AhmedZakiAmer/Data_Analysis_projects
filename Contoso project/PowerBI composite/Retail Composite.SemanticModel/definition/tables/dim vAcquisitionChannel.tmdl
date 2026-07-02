@@ -1,0 +1,91 @@
+table 'dim vAcquisitionChannel'
+	lineageTag: fa0c9016-e0d4-4423-b548-b5fe24a4a4bf
+
+	column AcquisitionChannelKey
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: cf63ca06-daaf-4afd-83dc-744a5a0e222f
+		isDefaultLabel
+		summarizeBy: none
+		sourceColumn: AcquisitionChannelKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ChannelName
+		dataType: string
+		isNullable: false
+		sourceProviderType: nvarchar(50)
+		lineageTag: 3f42ee85-3b9b-4908-841e-4a2f053af9d3
+		summarizeBy: none
+		sourceColumn: ChannelName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ChannelCategory
+		dataType: string
+		isNullable: false
+		sourceProviderType: nvarchar(20)
+		lineageTag: 7c24e044-d75d-47f5-84a1-3e1005651449
+		summarizeBy: none
+		sourceColumn: ChannelCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsDigital
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: 19bc1f68-f3db-430a-8346-4d11f21d6956
+		summarizeBy: none
+		sourceColumn: IsDigital
+
+		annotation SummarizationSetBy = Automatic
+
+	column EstimatedCACLow
+		dataType: double
+		isNullable: false
+		sourceProviderType: decimal(19, 4)
+		lineageTag: cf627b48-2096-4625-8f34-807048f24b6a
+		summarizeBy: sum
+		sourceColumn: EstimatedCACLow
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column EstimatedCACHigh
+		dataType: double
+		isNullable: false
+		sourceProviderType: decimal(19, 4)
+		lineageTag: 71f3be11-03d3-49a7-af12-ab5fdf783f39
+		summarizeBy: sum
+		sourceColumn: EstimatedCACHigh
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CACMidpoint
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: 7ebc2a4b-53b7-4f20-818d-fbdb1361b99c
+		summarizeBy: sum
+		sourceColumn: CACMidpoint
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'dim vAcquisitionChannel' = m
+		mode: dual
+		source =
+				let
+				  Source = Sql.Database("localhost\SQLEXPRESS", "ContosoRetailDW"),
+				  #"Navigation 1" = Source{[Schema = "dim", Item = "vAcquisitionChannel"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+

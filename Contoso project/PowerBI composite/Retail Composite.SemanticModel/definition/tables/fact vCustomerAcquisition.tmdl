@@ -1,0 +1,79 @@
+table 'fact vCustomerAcquisition'
+	lineageTag: bbf10d51-b822-44b9-aecb-398a92620e3c
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 31ed2485-1fd1-4f78-b112-b42627117d1b
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column AcquisitionChannelKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 43bb5add-30b8-4057-aaff-730990c63fa6
+		summarizeBy: none
+		sourceColumn: AcquisitionChannelKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column AcquisitionDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 3a3fc1e8-0351-4360-bf78-cd74debe954c
+		summarizeBy: count
+		sourceColumn: AcquisitionDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column AcquisitionDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 29daa259-d698-4cff-a062-474ea5709a2f
+		summarizeBy: none
+		sourceColumn: AcquisitionDate
+
+		variation Variation
+			isDefault
+			relationship: 4a4a53dd-ac56-4c32-b122-a4ce01a081eb
+			defaultHierarchy: LocalDateTable_ee0eb81f-4cc8-4bfe-b8ed-6ec8b7bc79ab.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column CACMidpoint
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 54a67acf-918b-477f-adf5-6a6b72f0cd5b
+		summarizeBy: sum
+		sourceColumn: CACMidpoint
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column CACTier
+		dataType: string
+		lineageTag: c5a95ddf-e2ce-4b87-843a-1f267a57975c
+		summarizeBy: none
+		sourceColumn: CACTier
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'fact vCustomerAcquisition' = m
+		mode: import
+		source =
+				let
+				  Source = Sql.Database("localhost\SQLEXPRESS", "ContosoRetailDW"),
+				  #"Navigation 1" = Source{[Schema = "fact", Item = "vCustomerAcquisition"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+
