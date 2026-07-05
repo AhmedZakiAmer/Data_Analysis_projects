@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "1b037489182d2c4aee83",
+  "name": "20d1d72e70e53d076676",
   "position": {
-    "x": 618.9040450320723,
+    "x": 0,
     "y": 0,
-    "z": 2001,
-    "height": 280.49744730985731,
-    "width": 278.68778635947115,
-    "tabOrder": 2001
+    "z": 2006,
+    "height": 300.40371776410524,
+    "width": 302.21337871449145
   },
   "visual": {
     "visualType": "card",
+    "autoSelectVisualType": true,
     "query": {
       "queryState": {
         "Values": {
@@ -31,26 +31,26 @@
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Measures"
-                  }
-                },
-                "Property": "Total Revenue"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
       }
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9622488da359ebd890cc",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Total Revenue"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

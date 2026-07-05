@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "0f4466a5a254e9d62dd0",
+  "name": "879832440b29ce3011b8",
   "position": {
-    "x": 0,
-    "y": 0,
-    "z": 1000,
-    "height": 280.49744730985731,
-    "width": 278.68778635947115,
-    "tabOrder": 1000
+    "x": 859.58895143343375,
+    "y": 300.40371776410524,
+    "z": 2014,
+    "height": 298.97193260009868,
+    "width": 300.40371776410529
   },
   "visual": {
     "visualType": "card",
+    "autoSelectVisualType": true,
     "query": {
       "queryState": {
         "Values": {
@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total Revenue_Online"
+                  "Property": "Online Gross Profit"
                 }
               },
-              "queryRef": "_Measures.Total Revenue_Online",
-              "nativeQueryRef": "Total Revenue_Online"
+              "queryRef": "_Measures.Online Gross Profit",
+              "nativeQueryRef": "Online Gross Profit"
             }
           ]
         }
@@ -42,7 +42,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Total Revenue_Online"
+                "Property": "Online Gross Profit"
               }
             },
             "direction": "Descending"

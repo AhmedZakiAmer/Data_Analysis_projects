@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "176cd445ea892bc06a9c",
+  "position": {
+    "x": 1619.6465505956278,
+    "y": 0,
+    "z": 2009,
+    "height": 300.40371776410524,
+    "width": 300.40371776410524
+  },
+  "visual": {
+    "visualType": "card",
+    "autoSelectVisualType": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Discount Amount"
+                }
+              },
+              "queryRef": "_Measures.Total Discount Amount",
+              "nativeQueryRef": "Total Discount Amount"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

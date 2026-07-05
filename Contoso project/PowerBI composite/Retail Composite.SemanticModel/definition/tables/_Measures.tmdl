@@ -1,28 +1,216 @@
 table _Measures
 	lineageTag: 8fafed5b-16f5-4e09-b673-5257e852af67
 
-	measure 'Total Revenue_Online' = SUM('fact vOnlineSales'[SalesAmount])
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
-		displayFolder: CFO
-		lineageTag: 7d8e5980-2962-41e6-8cb9-9ca9854d7aba
-
-		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
-
-	measure Revnue_stores = SUM('fact vStoreSales'[SalesAmount])
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
-		displayFolder: CFO
-		lineageTag: 1002199d-49c0-435a-9035-c3ca52d3ae33
-
-		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
-
-	measure 'Total Revenue' =
+	measure 'Total Revenue' = ```
 			
-			SUM ( 'fact vStoreSales'[SalesAmount] )
-			    + SUM ( 'fact vOnlineSales'[SalesAmount] )
+			SUMX (
+			    'fact vOnlineSales',
+			    'fact vOnlineSales'[UnitPrice] * 'fact vOnlineSales'[SalesQuantity]
+			)
+			    + SUMX (
+			        'fact vStoreSales',
+			        'fact vStoreSales'[UnitPrice] * 'fact vStoreSales'[SalesQuantity]
+			    )
+			
+			```
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: CFO\Revenue
 		lineageTag: 24e40462-3e23-4952-bbe6-2110fa1ea399
 
+	measure tot_Returns_amount = ```
+			
+			    SUM('fact vOnlineSales'[ReturnAmount]) 
+			    + SUM('fact vStoreSales'[ReturnAmount])
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: CFO\Others
+		lineageTag: 6bba15b1-94d4-49e5-8511-3d318f3a742e
+
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Number of customer' = DISTINCTCOUNT('dim vCustomer'[CustomerKey])
+		formatString: 0
+		displayFolder: CEO
+		lineageTag: b4783139-b9b9-4c20-ad25-45f21c632d6d
+
+	measure 'Online Revenue' = ```
+			
+			SUMX (
+			    'fact vOnlineSales',
+			    'fact vOnlineSales'[UnitPrice] * 'fact vOnlineSales'[SalesQuantity]
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: CFO\Revenue
+		lineageTag: 70f1bd2d-f78a-4a90-b7c3-57855db252c5
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Online Gross Profit' = ```
+			
+			    SUM('fact vOnlineSales'[GrossProfit] 
+			    )
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: CFO\profitability
+		lineageTag: 602d3109-a7e2-4ff0-b22c-0821f196f87e
+
+	measure 'Stores Revenue' = ```
+			
+			SUMX (
+			    'fact vStoreSales',
+			    'fact vStoreSales'[SalesQuantity] * 'fact vStoreSales'[UnitPrice]
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: CFO\Revenue
+		lineageTag: 7571667e-032a-4ab0-9216-e278f5faed6b
+
+	measure 'test tot Rev' = [Online Revenue] + [Stores Revenue]
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: Tries & tests
+		lineageTag: e9e56db9-ce87-4bee-a1bf-ae6afbcfaf94
+
+	measure 'Total Refund Amount' = SUM('fact vReturns'[RefundAmount])
+		displayFolder: CFO\Others
+		lineageTag: a72836cf-120f-4f7b-a99c-6198fd327cd0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Discount Amount' = ```
+			
+			VAR Discount_Online =
+			    SUMX (
+			        'fact vOnlineSales',
+			        'fact vOnlineSales'[DiscountQuantity] * 'fact vOnlineSales'[DiscountAmount]
+			    )
+			VAR Discount_stores =
+			    SUMX (
+			        'fact vStoreSales',
+			        'fact vStoreSales'[DiscountQuantity] * 'fact vStoreSales'[DiscountAmount]
+			    )
+			RETURN
+			    Discount_Online + Discount_stores
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: CFO\Others
+		lineageTag: b65fb94d-6727-4905-8c56-d97089381927
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Total Returns Amount' = ```
+			
+			VAR Return_Online =
+			    SUMX (
+			        'fact vOnlineSales',
+			        'fact vOnlineSales'[ReturnQuantity] * 'fact vOnlineSales'[ReturnAmount]
+			    )
+			VAR Return_stores =
+			    SUMX (
+			        'fact vStoreSales',
+			        'fact vStoreSales'[ReturnQuantity] * 'fact vStoreSales'[ReturnAmount]
+			    )
+			RETURN
+			    Return_Online + Return_stores
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: CFO\Others
+		lineageTag: 0130a562-c161-471e-b295-95817795af85
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Online Return %' = ```
+			
+			    var OnlineRows = COUNTROWS('fact vOnlineSales')
+			    VAR OnlineReturns = CALCULATE(COUNTROWS('fact vReturns'),'fact vReturns'[ReturnChannel] = "Online")
+			    RETURN DIVIDE(OnlineReturns,OnlineRows)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Tries & tests
+		lineageTag: 24b46fb0-c982-476c-817b-d2e029670782
+
+	measure 'Net Online Rev' = SUM('fact vOnlineSales'[SalesAmount])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: CFO\Revenue
+		lineageTag: 5c8c0dc1-65d9-4132-9330-e52f55c45c2d
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Net onlineRev -Calc' = ```
+			SUMX (
+			    'fact vOnlineSales',
+			    'fact vOnlineSales'[UnitPrice] * 'fact vOnlineSales'[SalesQuantity] - 'fact vOnlineSales'[DiscountAmount]
+			) 
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: Tries & tests
+		lineageTag: c9184017-f44b-44a8-9d83-ce7d56bae5ca
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Net Stores Rev' = ```
+			
+			SUMX (
+			    'fact vStoreSales',
+			    'fact vStoreSales'[SalesAmount] - 'fact vStoreSales'[ReturnAmount]
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: CFO\Revenue
+		lineageTag: fe0e9804-bd19-49bf-b02e-3ff53f0f5ad1
+
+	measure 'Total Net Rev' = ```
+			
+			VAR Net_Online_Rev =
+			    SUM ( 'fact vOnlineSales'[SalesAmount] )
+			VAR Net_Stores_Rev =
+			    SUMX (
+			        'fact vStoreSales',
+			        'fact vStoreSales'[SalesAmount] - 'fact vStoreSales'[ReturnAmount]
+			    )
+			RETURN
+			    Net_Online_Rev + Net_Stores_Rev
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: CFO\Revenue
+		lineageTag: d20b6953-9d01-452e-a439-ca549718ffd4
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Stores Gross Profit' = ```
+			
+			    SUM('fact vStoreSales'[GrossProfit])
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: CFO\profitability
+		lineageTag: 09bc6b34-a883-413e-bf53-13eac52f89dc
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Tot. Gross Profit' = ```
+			
+			    VAR online_profit = SUM('fact vOnlineSales'[GrossProfit])
+			    VAR stores_profit = SUM('fact vStoreSales'[GrossProfit])
+			RETURN online_profit + stores_profit
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: CFO\profitability
+		lineageTag: de082d00-6c7a-468c-904d-c8885aa3f781
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Gross Margin %' = ```
+			DIVIDE([Tot. Gross Profit], [Total Revenue]) 
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: CFO\profitability
+		lineageTag: 0ff7d0cb-1268-438a-a517-992c827679de
 
 	partition _Measures = m
 		mode: import

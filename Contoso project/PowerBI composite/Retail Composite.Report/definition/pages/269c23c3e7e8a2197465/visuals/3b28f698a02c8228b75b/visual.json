@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "3b28f698a02c8228b75b",
+  "position": {
+    "x": 0,
+    "y": 297.68990634755465,
+    "z": 2013,
+    "height": 299.687825182102,
+    "width": 301.68574401664932
+  },
+  "visual": {
+    "visualType": "card",
+    "autoSelectVisualType": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Net Rev"
+                }
+              },
+              "queryRef": "_Measures.Total Net Rev",
+              "nativeQueryRef": "Total Net Rev"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

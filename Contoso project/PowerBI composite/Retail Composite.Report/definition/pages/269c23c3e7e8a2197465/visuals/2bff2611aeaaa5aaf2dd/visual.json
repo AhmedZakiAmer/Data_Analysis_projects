@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "2bff2611aeaaa5aaf2dd",
+  "position": {
+    "x": 1159.992669197539,
+    "y": 298.59405681371908,
+    "z": 2015,
+    "height": 298.59405681371908,
+    "width": 300.40371776410524
+  },
+  "visual": {
+    "visualType": "card",
+    "autoSelectVisualType": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Stores Gross Profit"
+                }
+              },
+              "queryRef": "_Measures.Stores Gross Profit",
+              "nativeQueryRef": "Stores Gross Profit"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

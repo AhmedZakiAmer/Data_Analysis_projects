@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "6c67c9380907d59c7142",
+  "name": "98aca9d953f605fe5439",
   "position": {
-    "x": 307.64236156564994,
+    "x": 580.9011650739626,
     "y": 0,
-    "z": 2000,
-    "height": 280.49744730985731,
-    "width": 278.68778635947115,
-    "tabOrder": 2000
+    "z": 2005,
+    "height": 300.40371776410524,
+    "width": 278.68778635947115
   },
   "visual": {
     "visualType": "card",
+    "autoSelectVisualType": true,
     "query": {
       "queryState": {
         "Values": {
@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Revnue_stores"
+                  "Property": "Stores Revenue"
                 }
               },
-              "queryRef": "_Measures.Revnue_stores",
-              "nativeQueryRef": "Revnue_stores"
+              "queryRef": "_Measures.Stores Revenue",
+              "nativeQueryRef": "Stores Revenue"
             }
           ]
         }
@@ -42,7 +42,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Revnue_stores"
+                "Property": "Stores Revenue"
               }
             },
             "direction": "Descending"

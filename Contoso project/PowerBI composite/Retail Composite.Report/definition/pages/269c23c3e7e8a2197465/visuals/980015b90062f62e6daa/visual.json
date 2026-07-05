@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "980015b90062f62e6daa",
+  "position": {
+    "x": 301.68574401664932,
+    "y": 299.687825182102,
+    "z": 2011,
+    "height": 301.68574401664932,
+    "width": 279.70863683662856
+  },
+  "visual": {
+    "visualType": "card",
+    "autoSelectVisualType": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Net Online Rev"
+                }
+              },
+              "queryRef": "_Measures.Online Rev",
+              "nativeQueryRef": "Net Online Rev"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "db9f46708ebc42f1aa9c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Net Online Rev"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

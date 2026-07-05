@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "a1190b53d8015a3a5661",
+  "position": {
+    "x": 1159.992669197539,
+    "y": 0,
+    "z": 2016,
+    "height": 298.59405681371908,
+    "width": 300.40371776410529
+  },
+  "visual": {
+    "visualType": "card",
+    "autoSelectVisualType": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Tot. Gross Profit"
+                }
+              },
+              "queryRef": "_Measures.Tot. Gross Profit",
+              "nativeQueryRef": "Tot. Gross Profit"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
