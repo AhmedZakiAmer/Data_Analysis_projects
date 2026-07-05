@@ -31,6 +31,13 @@ I used log scale for qty & price chart to prove the relation and suggest to merg
     1- Microsoft Excel (Pivot Tables, Dashboard Design, SUMIF, VLOOKUP)
     2- Microsoft Power BI (DAX, Interactive Dashboards, Slicers)
 
+# Power BI V2 Improvements
+    1- Restructured data model to star schema (fact + dimension tables)
+    2- Created dedicated Measures table no calculated columns, 
+    3- all metrics defined as DAX measures (Revenue, Profit, Margin)
+    4- Dimension tables set as reference queries no data duplication
+    5- Cleaner, more scalable model following professional BI standards
+
 # Recommendations:
     1- merge complementary products such as Computers with Accessories to increase AOV 
     2- Asia is a promising market specially China
