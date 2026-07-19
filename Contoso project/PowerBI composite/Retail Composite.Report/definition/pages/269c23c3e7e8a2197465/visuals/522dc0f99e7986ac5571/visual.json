@@ -1,20 +1,19 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "98aca9d953f605fe5439",
+  "name": "522dc0f99e7986ac5571",
   "position": {
-    "x": 494.03743945542612,
-    "y": 0,
-    "z": 1000,
-    "height": 217.15931404634114,
-    "width": 226.20761879827202,
-    "tabOrder": 7000
+    "x": 0,
+    "y": 861.39861238381991,
+    "z": 17000,
+    "height": 218.96897499672733,
+    "width": 287.736091111402,
+    "tabOrder": 17000
   },
   "visual": {
-    "visualType": "card",
-    "autoSelectVisualType": true,
+    "visualType": "waterfallChart",
     "query": {
       "queryState": {
-        "Values": {
+        "Y": {
           "projections": [
             {
               "field": {
@@ -24,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Stores Revenue"
+                  "Property": "Total Net Rev"
                 }
               },
-              "queryRef": "_Measures.Stores Revenue",
-              "nativeQueryRef": "Stores Revenue"
+              "queryRef": "_Measures.Total Net Rev",
+              "nativeQueryRef": "Total Net Rev"
             }
           ]
         }
@@ -43,7 +42,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Stores Revenue"
+                "Property": "Total Net Rev"
               }
             },
             "direction": "Descending"
@@ -51,6 +50,21 @@
         ],
         "isDefaultSort": true
       }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'waterfall (fix it)'"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "drillFilterOtherVisuals": true
   }

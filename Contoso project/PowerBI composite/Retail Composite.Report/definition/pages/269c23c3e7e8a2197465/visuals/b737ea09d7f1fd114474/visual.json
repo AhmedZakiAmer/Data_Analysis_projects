@@ -1,0 +1,44 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "b737ea09d7f1fd114474",
+  "position": {
+    "x": 1478.4929964655059,
+    "y": 816.15708862416545,
+    "z": 19000,
+    "height": 132.10524937819088,
+    "width": 218.96897499672733,
+    "tabOrder": 20000
+  },
+  "visual": {
+    "visualType": "card",
+    "autoSelectVisualType": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim vAcquisitionChannel"
+                        }
+                      },
+                      "Property": "CACMidpoint"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(dim vAcquisitionChannel.CACMidpoint)",
+              "nativeQueryRef": "Sum of CACMidpoint"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

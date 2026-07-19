@@ -13,7 +13,7 @@ table _Measures
 			    )
 			
 			```
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: CFO\Revenue
 		lineageTag: 24e40462-3e23-4952-bbe6-2110fa1ea399
 
@@ -101,20 +101,8 @@ table _Measures
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 'Total Returns Amount' = ```
-			
-			VAR Return_Online =
-			    SUMX (
-			        'fact vOnlineSales',
-			        'fact vOnlineSales'[ReturnQuantity] * 'fact vOnlineSales'[ReturnAmount]
-			    )
-			VAR Return_stores =
-			    SUMX (
-			        'fact vStoreSales',
-			        'fact vStoreSales'[ReturnQuantity] * 'fact vStoreSales'[ReturnAmount]
-			    )
-			RETURN
-			    Return_Online + Return_stores
+	measure 'Total Returns Amount(Return)' = ```
+			SUM('fact vReturns'[ReturnAmount])
 			
 			```
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
@@ -177,11 +165,9 @@ table _Measures
 			    Net_Online_Rev + Net_Stores_Rev
 			
 			```
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: CFO\Revenue
 		lineageTag: d20b6953-9d01-452e-a439-ca549718ffd4
-
-		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
 	measure 'Stores Gross Profit' = ```
 			
@@ -199,7 +185,7 @@ table _Measures
 			    VAR stores_profit = SUM('fact vStoreSales'[GrossProfit])
 			RETURN online_profit + stores_profit
 			```
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: CFO\profitability
 		lineageTag: de082d00-6c7a-468c-904d-c8885aa3f781
 
@@ -211,6 +197,50 @@ table _Measures
 		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: CFO\profitability
 		lineageTag: 0ff7d0cb-1268-438a-a517-992c827679de
+
+	measure 'Return Rate' =
+			
+			DIVIDE ( [tot_Returns_amount], [Total Revenue] )
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: CFO\Others
+		lineageTag: 477a99a0-cb62-43c3-ac35-ae97ce2f5b73
+
+	measure 'Refund Rate' = ```
+			
+			    DIVIDE( [Total Refund Amount],[Total Revenue])
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: CFO\Others
+		lineageTag: d641a20e-5b52-4a7b-99c7-9bcf33d9e8b9
+
+	measure 'X-wrong? Total Market Spend' = ```
+			
+			    CALCULATE(SUM('fact vMarketingSpend'[MonthlySpend]))
+			```
+		displayFolder: CFO\Others
+		lineageTag: 623e33db-b441-43ee-9977-fcbebad744e9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Market Spend % Of Rev' = ```
+			
+			    DIVIDE([X-wrong? Total Market Spend],[Total Revenue])
+			```
+		formatString: 0.000%;-0.000%;0.000%
+		displayFolder: CFO\Others
+		lineageTag: 51181c43-f834-470c-b8fb-60f7f42adb50
+
+	measure COGS = ```
+			
+			    var online_cogs = SUMX('fact vOnlineSales','fact vOnlineSales'[UnitCost] * 'fact vOnlineSales'[SalesQuantity])
+			    var store_cogs = SUMX('fact vStoreSales','fact vStoreSales'[UnitCost] * 'fact vStoreSales'[SalesQuantity])
+			RETURN store_cogs + online_cogs
+			```
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: CFO\Others
+		lineageTag: 88750ed0-1507-4be3-b928-e2e892cb9a46
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
 	partition _Measures = m
 		mode: import

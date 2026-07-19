@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "98aca9d953f605fe5439",
+  "name": "1f2ff3a9ae9806eee905",
   "position": {
-    "x": 494.03743945542612,
-    "y": 0,
-    "z": 1000,
-    "height": 217.15931404634114,
-    "width": 226.20761879827202,
-    "tabOrder": 7000
+    "x": 1697.4619714622334,
+    "y": 816.15708862416545,
+    "z": 23000,
+    "height": 264.21049875638175,
+    "width": 222.58829689749967,
+    "tabOrder": 24000
   },
   "visual": {
-    "visualType": "card",
+    "visualType": "tableEx",
     "autoSelectVisualType": true,
     "query": {
       "queryState": {
@@ -18,17 +18,17 @@
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Measures"
+                      "Entity": "fact vCustomerAcquisition"
                     }
                   },
-                  "Property": "Stores Revenue"
+                  "Property": "CACTier"
                 }
               },
-              "queryRef": "_Measures.Stores Revenue",
-              "nativeQueryRef": "Stores Revenue"
+              "queryRef": "fact vCustomerAcquisition.CACTier",
+              "nativeQueryRef": "CACTier"
             }
           ]
         }
@@ -37,19 +37,18 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "_Measures"
+                    "Entity": "fact vCustomerAcquisition"
                   }
                 },
-                "Property": "Stores Revenue"
+                "Property": "CACTier"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
-        ],
-        "isDefaultSort": true
+        ]
       }
     },
     "drillFilterOtherVisuals": true

@@ -2,11 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "4ec9f28692ba439fd04c",
   "position": {
-    "x": 1619.6465505956278,
-    "y": 300.40371776410524,
-    "z": 2010,
-    "height": 300.40371776410524,
-    "width": 300.40371776410524
+    "x": 1491.1606231182093,
+    "y": 0,
+    "z": 5000,
+    "height": 217.15931404634114,
+    "width": 253.35253305406468,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "card",
@@ -23,7 +24,7 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total Returns Amount"
+                  "Property": "Total Returns Amount(Return)"
                 }
               },
               "queryRef": "_Measures.Total Returns Amount",

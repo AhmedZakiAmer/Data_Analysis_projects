@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "aac8b407d17a96bfec1d",
+  "name": "ebb7257b0b7067fd09b8",
   "position": {
-    "x": 720.24505825369818,
-    "y": 0,
-    "z": 3000,
-    "height": 217.15931404634114,
-    "width": 251.54287210367849,
-    "tabOrder": 9000
+    "x": 1478.4929964655059,
+    "y": 217.15931404634114,
+    "z": 14000,
+    "height": 231.63660164943056,
+    "width": 240.68490640136145,
+    "tabOrder": 14000
   },
   "visual": {
     "visualType": "card",
@@ -24,11 +24,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total Refund Amount"
+                  "Property": "Refund Rate"
                 }
               },
-              "queryRef": "_Measures.Total Refund Amount",
-              "nativeQueryRef": "Total Refund Amount"
+              "queryRef": "_Measures.Refund Rate",
+              "nativeQueryRef": "Refund Rate"
             }
           ]
         }

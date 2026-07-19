@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "aac8b407d17a96bfec1d",
+  "name": "194344684410bf690318",
   "position": {
-    "x": 720.24505825369818,
-    "y": 0,
-    "z": 3000,
-    "height": 217.15931404634114,
-    "width": 251.54287210367849,
-    "tabOrder": 9000
+    "x": 0,
+    "y": 450.60557664615789,
+    "z": 16000,
+    "height": 180.96609503861762,
+    "width": 296.78439586333292,
+    "tabOrder": 16000
   },
   "visual": {
     "visualType": "card",
@@ -24,11 +24,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total Refund Amount"
+                  "Property": "Market Spend % Of Rev"
                 }
               },
-              "queryRef": "_Measures.Total Refund Amount",
-              "nativeQueryRef": "Total Refund Amount"
+              "queryRef": "_Measures.Market Spend % Of Rev",
+              "nativeQueryRef": "X-wrong?Market Spend % Of Rev"
             }
           ]
         }

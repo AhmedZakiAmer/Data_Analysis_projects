@@ -4,14 +4,14 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 1136,
+        "x": 5018.4877899434387,
         "y": 0
       },
       "nodes": [
         {
           "location": {
             "x": 0,
-            "y": 26
+            "y": 69.426174185246964
           },
           "nodeIndex": "dim vAcquisitionChannel",
           "nodeLineageTag": "fa0c9016-e0d4-4423-b548-b5fe24a4a4bf",
@@ -19,12 +19,12 @@
             "height": 248,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 1
         },
         {
           "location": {
-            "x": 284,
-            "y": 62
+            "x": 2826.3614974800512,
+            "y": 794.64448639272962
           },
           "nodeIndex": "dim vChannel",
           "nodeLineageTag": "b002083f-c5b1-44d3-9fc7-699543954026",
@@ -32,12 +32,12 @@
             "height": 176,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 2
         },
         {
           "location": {
             "x": 568,
-            "y": 62
+            "y": 105.42617418524696
           },
           "nodeIndex": "dim vCurrency",
           "nodeLineageTag": "e45f5933-5827-40e4-b032-87aef4e4d4d6",
@@ -45,12 +45,12 @@
             "height": 176,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 3
         },
         {
           "location": {
             "x": 852,
-            "y": 0
+            "y": 43.426174185246964
           },
           "nodeIndex": "dim vCustomer",
           "nodeLineageTag": "f9b0e047-6b8c-4f83-9002-b94c3720b735",
@@ -58,12 +58,12 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 21
         },
         {
           "location": {
             "x": 1136,
-            "y": 0
+            "y": 43.426174185246964
           },
           "nodeIndex": "dim vDate",
           "nodeLineageTag": "dd25f69c-b0f6-4a53-878f-c1cf0e693cab",
@@ -71,12 +71,12 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 4
         },
         {
           "location": {
             "x": 1420,
-            "y": 0
+            "y": 43.426174185246964
           },
           "nodeIndex": "dim vEmployee",
           "nodeLineageTag": "adfd7a7a-24ea-487e-b797-80d450dfe89a",
@@ -84,12 +84,12 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 5
         },
         {
           "location": {
-            "x": 1704,
-            "y": 62
+            "x": 1848.557385455056,
+            "y": 598.17830547552421
           },
           "nodeIndex": "dim vPaymentMethod",
           "nodeLineageTag": "c65f6127-105c-4881-8846-b2ac59b4434e",
@@ -97,12 +97,12 @@
             "height": 176,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 22
         },
         {
           "location": {
             "x": 1988,
-            "y": 0
+            "y": 43.426174185246964
           },
           "nodeIndex": "dim vProduct",
           "nodeLineageTag": "a65c9b7b-c9fc-4bde-9ea9-78dc1b628db9",
@@ -110,12 +110,12 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 6
         },
         {
           "location": {
             "x": 2272,
-            "y": 0
+            "y": 43.426174185246964
           },
           "nodeIndex": "dim vPromotion",
           "nodeLineageTag": "ddf57fcf-818a-4c76-942b-827931023943",
@@ -123,12 +123,12 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 7
         },
         {
           "location": {
             "x": 2556,
-            "y": 38
+            "y": 81.426174185246964
           },
           "nodeIndex": "dim vReturnReason",
           "nodeLineageTag": "b9708215-5083-41b3-9476-4f34d8e8e168",
@@ -136,12 +136,12 @@
             "height": 224,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 8
         },
         {
           "location": {
             "x": 2840,
-            "y": 0
+            "y": 43.426174185246964
           },
           "nodeIndex": "dim vStore",
           "nodeLineageTag": "95d0e702-ce72-41eb-bc77-5a9450d864f1",
@@ -149,12 +149,12 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 9
         },
         {
           "location": {
             "x": 3124,
-            "y": 0
+            "y": 43.426174185246964
           },
           "nodeIndex": "fact vInventory",
           "nodeLineageTag": "ea5d8a22-37a5-4874-8402-0b70136d638f",
@@ -162,12 +162,12 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 10
         },
         {
           "location": {
             "x": 3408,
-            "y": 0
+            "y": 43.426174185246964
           },
           "nodeIndex": "fact vOnlineSales",
           "nodeLineageTag": "ceb2ae9b-2a66-4dad-9062-fa4e9e6b5bb6",
@@ -175,110 +175,140 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 11
         },
         {
-          "location": {},
+          "location": {
+            "x": 4594.69692144784,
+            "y": 43.839183669827619
+          },
           "nodeIndex": "fact vCustomerAcquisition",
           "nodeLineageTag": "bbf10d51-b822-44b9-aecb-398a92620e3c",
           "size": {
             "height": 224,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 12
         },
         {
-          "location": {},
+          "location": {
+            "x": 4878.9169556403085,
+            "y": 23.704696740987856
+          },
           "nodeIndex": "fact vCustomerSurvey",
           "nodeLineageTag": "417da63e-467d-41c0-8a5e-63dc862716b4",
           "size": {
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 13
         },
         {
-          "location": {},
+          "location": {
+            "x": 5112.9169556403085,
+            "y": 50.852348370493928
+          },
           "nodeIndex": "fact vExchangeRate",
           "nodeLineageTag": "c01eb1e0-a891-4aeb-8c1f-237938cc8c10",
           "size": {
             "height": 272,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 14
         },
         {
-          "location": {},
+          "location": {
+            "x": 5396.9169556403085,
+            "y": 36.852348370493928
+          },
           "nodeIndex": "fact vMarketingSpend",
           "nodeLineageTag": "3970cec4-8303-439f-bea4-402e308ac143",
           "size": {
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 15
         },
         {
-          "location": {},
+          "location": {
+            "x": 4026.2056553748407,
+            "y": -49.999999999999972
+          },
           "nodeIndex": "fact vOrderFulfillment",
           "nodeLineageTag": "c2862491-fe2d-4607-8264-015c8a0a70b2",
           "size": {
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 16
         },
         {
-          "location": {},
+          "location": {
+            "x": 3742,
+            "y": -8.1844417985921609
+          },
           "nodeIndex": "fact vOrderPayment",
           "nodeLineageTag": "9a6f3193-55a2-4251-8119-0fa5fc833dee",
           "size": {
             "height": 200,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 23
         },
         {
-          "location": {},
+          "location": {
+            "x": 4310.4596482404913,
+            "y": -26.760789774645019
+          },
           "nodeIndex": "fact vReturns",
           "nodeLineageTag": "1a39a13b-a5ee-48b4-9aa0-0adc13f3f8ba",
           "size": {
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 17
         },
         {
-          "location": {},
+          "location": {
+            "x": 5680.9169556403085,
+            "y": 36.852348370493928
+          },
           "nodeIndex": "fact vSalesQuota",
           "nodeLineageTag": "5282dd72-1c9b-475b-8cb7-22b678c43755",
           "size": {
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 18
         },
         {
-          "location": {},
+          "location": {
+            "x": 5964.9169556403085,
+            "y": 36.852348370493928
+          },
           "nodeIndex": "fact vStoreSales",
           "nodeLineageTag": "cfcfb373-c9ee-480f-8b8a-41079fadf0f4",
           "size": {
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 19
         },
         {
-          "location": {},
+          "location": {
+            "x": 6248.9169556403085,
+            "y": 134.85234837049393
+          },
           "nodeIndex": "_Measures",
           "size": {
             "height": 104,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 20
         }
       ],
       "name": "All tables",
-      "zoomValue": 100,
+      "zoomValue": 79.553182037699827,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
@@ -288,7 +318,7 @@
       "ordinal": 1,
       "scrollPosition": {
         "x": 0,
-        "y": 0
+        "y": 234.707651417438
       },
       "nodes": [
         {
@@ -474,7 +504,7 @@
       "ordinal": 3,
       "scrollPosition": {
         "x": 0,
-        "y": 224.2067148861469
+        "y": 452.05904649568083
       },
       "nodes": [
         {
@@ -662,7 +692,7 @@
       "ordinal": 6,
       "scrollPosition": {
         "x": 0,
-        "y": 128.85906040268458
+        "y": 0
       },
       "nodes": [
         {
@@ -768,7 +798,7 @@
       "ordinal": 7,
       "scrollPosition": {
         "x": 0,
-        "y": 200
+        "y": 0
       },
       "nodes": [
         {
@@ -1010,7 +1040,7 @@
       "ordinal": 11,
       "scrollPosition": {
         "x": 0,
-        "y": 0
+        "y": 18.399999618530273
       },
       "nodes": [
         {
@@ -1074,6 +1104,6 @@
       "tablesLocked": false
     }
   ],
-  "selectedDiagram": "Fulfillment",
+  "selectedDiagram": "All tables",
   "defaultDiagram": "All tables"
 }
