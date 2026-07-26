@@ -1,0 +1,86 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "006aba233547469ca1b2",
+  "position": {
+    "x": 429.90881458966567,
+    "y": 700.30395136778122,
+    "z": 28000,
+    "height": 350.15197568389061,
+    "width": 591.36778115501522,
+    "tabOrder": 25000
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "fact vMarketingSpend"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "MonthStartDate"
+                        }
+                      },
+                      "Hierarchy": "Date Hierarchy"
+                    }
+                  },
+                  "Level": "Quarter"
+                }
+              },
+              "queryRef": "fact vMarketingSpend.MonthStartDate.Variation.Date Hierarchy.Quarter",
+              "nativeQueryRef": "MonthStartDate Quarter",
+              "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim vAcquisitionChannel"
+                    }
+                  },
+                  "Property": "ChannelName"
+                }
+              },
+              "queryRef": "dim vAcquisitionChannel.ChannelName",
+              "nativeQueryRef": "ChannelName"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "CAC To CLV Ratio"
+                }
+              },
+              "queryRef": "_Measures.CAC To CLV Ratio",
+              "nativeQueryRef": "CAC To CLV Ratio"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

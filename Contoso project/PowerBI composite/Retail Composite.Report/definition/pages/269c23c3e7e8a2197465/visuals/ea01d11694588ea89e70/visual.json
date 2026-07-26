@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "194344684410bf690318",
+  "name": "ea01d11694588ea89e70",
   "position": {
-    "x": 0,
+    "x": 225.6534954407295,
     "y": 451.306990881459,
-    "z": 16000,
+    "z": 26000,
     "height": 180.91185410334347,
-    "width": 225.6534954407295,
-    "tabOrder": 16000
+    "width": 184.80243161094225,
+    "tabOrder": 27000
   },
   "visual": {
     "visualType": "card",
@@ -24,11 +24,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Market Spend % Of Rev"
+                  "Property": "CLV"
                 }
               },
-              "queryRef": "_Measures.Market Spend % Of Rev",
-              "nativeQueryRef": "X-wrong?Market Spend % Of Rev"
+              "queryRef": "_Measures.CLV",
+              "nativeQueryRef": "CLV"
             }
           ]
         }

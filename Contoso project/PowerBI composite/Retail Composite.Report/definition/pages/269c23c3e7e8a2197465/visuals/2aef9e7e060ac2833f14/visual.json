@@ -24,11 +24,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "X-wrong? Total Market Spend"
+                  "Property": "Total Market Spend"
                 }
               },
               "queryRef": "_Measures.Total Market Spend",
-              "nativeQueryRef": "X-wrong? Total Market Spend"
+              "nativeQueryRef": "Total Market Spend"
             }
           ]
         }

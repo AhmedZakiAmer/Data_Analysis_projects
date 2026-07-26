@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "20d1d72e70e53d076676",
   "position": {
     "x": 0,
@@ -10,11 +10,10 @@
     "tabOrder": 1000
   },
   "visual": {
-    "visualType": "card",
-    "autoSelectVisualType": true,
+    "visualType": "kpi",
     "query": {
       "queryState": {
-        "Values": {
+        "Goal": {
           "projections": [
             {
               "field": {
@@ -29,6 +28,24 @@
               },
               "queryRef": "_Measures.Total Revenue",
               "nativeQueryRef": "Total Revenue"
+            }
+          ]
+        },
+        "Indicator": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Net Rev"
+                }
+              },
+              "queryRef": "_Measures.Total Net Rev",
+              "nativeQueryRef": "Total Net Rev"
             }
           ]
         }

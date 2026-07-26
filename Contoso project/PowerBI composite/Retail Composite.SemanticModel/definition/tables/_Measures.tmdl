@@ -84,12 +84,14 @@ table _Measures
 			VAR Discount_Online =
 			    SUMX (
 			        'fact vOnlineSales',
-			        'fact vOnlineSales'[DiscountQuantity] * 'fact vOnlineSales'[DiscountAmount]
+			        IF(
+			            'fact vOnlineSales'[SalesQuantity] > 0,
+			            'fact vOnlineSales'[DiscountQuantity] * 'fact vOnlineSales'[DiscountAmount]
+			        )
 			    )
 			VAR Discount_stores =
-			    SUMX (
-			        'fact vStoreSales',
-			        'fact vStoreSales'[DiscountQuantity] * 'fact vStoreSales'[DiscountAmount]
+			    SUM (
+			        'fact vStoreSales'[DiscountAmount]
 			    )
 			RETURN
 			    Discount_Online + Discount_stores
@@ -155,7 +157,10 @@ table _Measures
 	measure 'Total Net Rev' = ```
 			
 			VAR Net_Online_Rev =
-			    SUM ( 'fact vOnlineSales'[SalesAmount] )
+			    SUMX (
+			        'fact vOnlineSales',
+			        'fact vOnlineSales'[SalesAmount] - 'fact vOnlineSales'[ReturnAmount]
+			    )
 			VAR Net_Stores_Rev =
 			    SUMX (
 			        'fact vStoreSales',
@@ -213,7 +218,7 @@ table _Measures
 		displayFolder: CFO\Others
 		lineageTag: d641a20e-5b52-4a7b-99c7-9bcf33d9e8b9
 
-	measure 'X-wrong? Total Market Spend' = ```
+	measure 'Total Market Spend' = ```
 			
 			    CALCULATE(SUM('fact vMarketingSpend'[MonthlySpend]))
 			```
@@ -224,7 +229,7 @@ table _Measures
 
 	measure 'Market Spend % Of Rev' = ```
 			
-			    DIVIDE([X-wrong? Total Market Spend],[Total Revenue])
+			    DIVIDE([Total Market Spend],[Total Revenue])
 			```
 		formatString: 0.000%;-0.000%;0.000%
 		displayFolder: CFO\Others
@@ -239,6 +244,53 @@ table _Measures
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: CFO\Others
 		lineageTag: 88750ed0-1507-4be3-b928-e2e892cb9a46
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'test Rev' = [tot_Returns_amount] + [Total Discount Amount] + [Total Net Rev]
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: CFO\Others
+		lineageTag: 13d0cad5-96dc-4dc4-a411-d29052b6d073
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'test Discount Amount' = ```
+			
+			    SUMX (
+			        'fact vOnlineSales',
+			            'fact vOnlineSales'[DiscountQuantity] * 'fact vOnlineSales'[DiscountAmount]
+			    )
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: CFO\Others
+		lineageTag: e3a7c8bf-4943-41c4-8101-8f653102301a
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure CAC = ```
+			
+			    VAR market_Spend = [Total Market Spend]
+			    VAR new_Castomer = COUNT('fact vMarketingSpend'[NewCustomersAcquired])
+			RETURN DIVIDE(market_Spend,new_Castomer)
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: CFO\Customers
+		lineageTag: b2db0ea1-f2b9-4434-9348-dbd0cc4d5dc1
+
+	measure CLV = DIVIDE([Online Revenue],[Number of customer])
+		formatString: 0
+		displayFolder: CFO\Customers
+		lineageTag: 0c6d0c9b-8375-4cab-8026-1873b274c055
+
+	measure 'CAC To CLV Ratio' = DIVIDE([CAC],[CLV])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: CFO\Customers
+		lineageTag: 1c8efbe9-2359-4c88-b043-198177300eb3
+
+	measure 'Short Store Name' = [test Rev]
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: Tries & tests
+		lineageTag: d0971b2a-6f75-446b-a306-950a510ab75d
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 

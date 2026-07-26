@@ -2,18 +2,37 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "522dc0f99e7986ac5571",
   "position": {
-    "x": 0,
-    "y": 861.39861238381991,
+    "x": 883.161094224924,
+    "y": 449.36170212765961,
     "z": 17000,
-    "height": 218.96897499672733,
-    "width": 287.736091111402,
+    "height": 291.79331306990883,
+    "width": 350.15197568389061,
     "tabOrder": 17000
   },
   "visual": {
     "visualType": "waterfallChart",
     "query": {
       "queryState": {
-        "Y": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim vDate"
+                    }
+                  },
+                  "Property": "CalendarYear"
+                }
+              },
+              "queryRef": "dim vDate.CalendarYear",
+              "nativeQueryRef": "Sum of CalendarYear",
+              "active": true
+            }
+          ]
+        },
+        "Tooltips": {
           "projections": [
             {
               "field": {
@@ -30,6 +49,24 @@
               "nativeQueryRef": "Total Net Rev"
             }
           ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Revenue"
+                }
+              },
+              "queryRef": "_Measures.Total Revenue",
+              "nativeQueryRef": "Total Revenue"
+            }
+          ]
         }
       },
       "sortDefinition": {
@@ -42,7 +79,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Total Net Rev"
+                "Property": "Total Revenue"
               }
             },
             "direction": "Descending"
@@ -58,7 +95,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'waterfall (fix it)'"
+                  "Value": "'Rev over years'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
                 }
               }
             }
