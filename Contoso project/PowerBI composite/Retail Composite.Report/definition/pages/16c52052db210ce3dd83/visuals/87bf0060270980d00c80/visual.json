@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "915601c88d8ed8aa0bad",
+  "name": "87bf0060270980d00c80",
   "position": {
-    "x": 1148,
-    "y": 140,
-    "z": 20002,
-    "height": 26,
-    "width": 384,
-    "tabOrder": 20002
+    "x": 1152.3772102161101,
+    "y": 133.90962671905697,
+    "z": 25000,
+    "height": 43.379174852652262,
+    "width": 384.75442043222006,
+    "tabOrder": 25000
   },
   "visual": {
     "visualType": "textbox",
@@ -22,7 +22,7 @@
                     "value": "Threshold 5%",
                     "textStyle": {
                       "fontWeight": "bold",
-                      "fontSize": "16pt",
+                      "fontSize": "18pt",
                       "color": "#999999"
                     }
                   }

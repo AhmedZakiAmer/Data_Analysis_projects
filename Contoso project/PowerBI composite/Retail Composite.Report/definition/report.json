@@ -65,6 +65,11 @@
       "type": "RegisteredResources",
       "items": [
         {
+          "name": "down_arraw617585789727092.png",
+          "path": "down_arraw617585789727092.png",
+          "type": "Image"
+        },
+        {
           "name": "Metricalist_-_Simply_Modern_Da5335564386383511.json",
           "path": "Metricalist_-_Simply_Modern_Da5335564386383511.json",
           "type": "CustomTheme"
@@ -83,7 +88,6 @@
     "defaultDrillFilterOtherVisuals": true,
     "allowChangeFilterTypes": true,
     "useEnhancedTooltips": true,
-    "useDefaultAggregateDisplayName": true,
-    "pauseQueries": true
+    "useDefaultAggregateDisplayName": true
   }
 }

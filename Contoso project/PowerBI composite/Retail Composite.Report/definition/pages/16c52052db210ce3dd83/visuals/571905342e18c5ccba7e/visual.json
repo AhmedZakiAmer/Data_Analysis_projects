@@ -7,7 +7,7 @@
     "z": 0,
     "height": 258,
     "width": 379,
-    "tabOrder": 10000
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "shape",
@@ -45,9 +45,8 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 1,
-                      "Percent": 0
+                    "Literal": {
+                      "Value": "'#191A24'"
                     }
                   }
                 }

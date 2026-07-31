@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "b326d4359a027e70cdc5",
+  "name": "4126ac06dd53d4a899d4",
   "position": {
-    "x": 1534,
-    "y": 134,
-    "z": 18000,
-    "height": 50,
-    "width": 386,
-    "tabOrder": 18000
+    "x": 0,
+    "y": 132,
+    "z": 23000,
+    "height": 79.214145383104139,
+    "width": 299.88212180746564,
+    "tabOrder": 23000
   },
   "visual": {
     "visualType": "textbox",
@@ -19,15 +19,13 @@
               {
                 "textRuns": [
                   {
-                    "value": "Target 5–15%",
+                    "value": "Total Revenue",
                     "textStyle": {
-                      "fontWeight": "bold",
                       "fontSize": "18pt",
                       "color": "#999999"
                     }
                   }
-                ],
-                "horizontalTextAlignment": "center"
+                ]
               }
             ]
           }

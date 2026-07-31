@@ -297,6 +297,11 @@ table _Measures
 		displayFolder: CFO\profitability
 		lineageTag: a3b8da25-bd2d-4d0e-ac31-f42576d15c47
 
+	measure Deduction = ([Total Revenue] - [Total Net Rev])/[Total Revenue]
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: CFO\Revenue
+		lineageTag: e2445641-d0ea-4272-bd82-3fab2ace6319
+
 	partition _Measures = m
 		mode: import
 		source =

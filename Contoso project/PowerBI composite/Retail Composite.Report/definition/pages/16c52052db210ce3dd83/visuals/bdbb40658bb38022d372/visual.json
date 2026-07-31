@@ -1,19 +1,38 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "e623cebce90347598b23",
+  "name": "bdbb40658bb38022d372",
   "position": {
     "x": 0,
-    "y": 0,
-    "z": 5000,
-    "height": 114,
-    "width": 380,
-    "tabOrder": 3000
+    "y": 258,
+    "z": 26000,
+    "height": 410,
+    "width": 640,
+    "tabOrder": 26000
   },
   "visual": {
-    "visualType": "cardVisual",
+    "visualType": "clusteredColumnChart",
     "query": {
       "queryState": {
-        "Data": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim vDate"
+                    }
+                  },
+                  "Property": "CalendarYear"
+                }
+              },
+              "queryRef": "dim vDate.CalendarYear",
+              "nativeQueryRef": "CalendarYear",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
           "projections": [
             {
               "field": {
@@ -28,6 +47,34 @@
               },
               "queryRef": "_Measures.Total Net Rev",
               "nativeQueryRef": "Total Net Rev"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Discount Amount"
+                }
+              },
+              "queryRef": "_Measures.Total Discount Amount",
+              "nativeQueryRef": "Total Discount Amount"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "tot_Returns_amount"
+                }
+              },
+              "queryRef": "_Measures.tot_Returns_amount",
+              "nativeQueryRef": "tot_Returns_amount"
             }
           ]
         }
@@ -52,23 +99,7 @@
       }
     },
     "objects": {
-      "value": [
-        {
-          "properties": {
-            "horizontalAlignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'center'"
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "default"
-          }
-        }
-      ],
-      "label": [
+      "labels": [
         {
           "properties": {
             "show": {
@@ -78,67 +109,77 @@
                 }
               }
             },
-            "heading": {
+            "labelPosition": {
               "expr": {
                 "Literal": {
-                  "Value": "'Heading3'"
+                  "Value": "'OutsideEnd'"
                 }
               }
             },
-            "bold": {
+            "labelOrientation": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "labelDensity": {
+              "expr": {
+                "Literal": {
+                  "Value": "50L"
+                }
+              }
+            },
+            "labelOverflow": {
               "expr": {
                 "Literal": {
                   "Value": "false"
                 }
               }
             },
-            "position": {
+            "optimizeLabelDisplay": {
               "expr": {
                 "Literal": {
-                  "Value": "'aboveValue'"
+                  "Value": "false"
                 }
               }
             },
-            "matchValueAlignment": {
+            "enableValueDataLabel": {
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "enableTitleDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "enableDetailDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "labelContentLayout": {
+              "expr": {
+                "Literal": {
+                  "Value": "'MultiLine'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "14D"
+                  "Value": "12D"
                 }
               }
-            }
-          },
-          "selector": {
-            "id": "default"
-          }
-        }
-      ],
-      "outline": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "default"
-          }
-        }
-      ],
-      "fillCustom": [
-        {
-          "properties": {
-            "show": {
+            },
+            "bold": {
               "expr": {
                 "Literal": {
                   "Value": "true"
@@ -148,23 +189,7 @@
           }
         }
       ],
-      "shapeCustomRectangle": [
-        {
-          "properties": {
-            "tileShape": {
-              "expr": {
-                "Literal": {
-                  "Value": "'rectangle'"
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "default"
-          }
-        }
-      ],
-      "divider": [
+      "zoom": [
         {
           "properties": {
             "show": {
@@ -174,32 +199,39 @@
                 }
               }
             }
-          },
-          "selector": {
-            "id": "default"
           }
         }
       ],
-      "padding": [
+      "legend": [
         {
           "properties": {
-            "paddingIndividual": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "gridlineShow": {
               "expr": {
                 "Literal": {
                   "Value": "false"
                 }
               }
-            },
-            "paddingUniform": {
-              "expr": {
-                "Literal": {
-                  "Value": "1L"
-                }
-              }
             }
-          },
-          "selector": {
-            "id": "default"
           }
         }
       ]
@@ -211,7 +243,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Net Revenue'"
+                  "Value": "'Finance'"
                 }
               }
             },
@@ -221,45 +253,6 @@
                   "Value": "'center'"
                 }
               }
-            },
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "background": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#191A24'"
-                    }
-                  }
-                }
-              }
-            },
-            "titleWrap": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "heading": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Heading3'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "14D"
-                }
-              }
             }
           }
         }
@@ -267,49 +260,17 @@
       "subTitle": [
         {
           "properties": {
-            "show": {
+            "text": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "'over year'"
                 }
               }
-            }
-          }
-        }
-      ],
-      "divider": [
-        {
-          "properties": {
-            "show": {
+            },
+            "alignment": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "spacing": [
-        {
-          "properties": {
-            "spaceAbovePlotArea": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "padding": [
-        {
-          "properties": {
-            "top": {
-              "expr": {
-                "Literal": {
-                  "Value": "20D"
+                  "Value": "'center'"
                 }
               }
             }

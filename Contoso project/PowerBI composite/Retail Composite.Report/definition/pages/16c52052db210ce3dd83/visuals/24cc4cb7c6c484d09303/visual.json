@@ -4,10 +4,10 @@
   "position": {
     "x": 1280,
     "y": 258.72340425531917,
-    "z": 13000,
+    "z": 12000,
     "height": 410.45592705167172,
     "width": 640,
-    "tabOrder": 8000
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "lineChart",
@@ -109,6 +109,21 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
                 }
               }
             }

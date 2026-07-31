@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "f56838da307c454ac7e9",
+  "name": "8718211ea7a7b360da63",
   "position": {
-    "x": 1534,
-    "y": 0,
-    "z": 9000,
-    "height": 258,
-    "width": 386,
-    "tabOrder": 6000
+    "x": 16,
+    "y": 114,
+    "z": 21000,
+    "height": 64,
+    "width": 364,
+    "tabOrder": 21000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Market Spend % Of Rev"
+                  "Property": "Total Revenue"
                 }
               },
-              "queryRef": "_Measures.Market Spend % Of Rev",
-              "nativeQueryRef": "Market Spend % Of Rev"
+              "queryRef": "_Measures.Total Revenue",
+              "nativeQueryRef": "Total Revenue"
             }
           ]
         }
@@ -42,7 +42,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Market Spend % Of Rev"
+                "Property": "Total Revenue"
               }
             },
             "direction": "Descending"
@@ -52,84 +52,6 @@
       }
     },
     "objects": {
-      "value": [
-        {
-          "properties": {
-            "horizontalAlignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'center'"
-                }
-              }
-            },
-            "showBlankAs": {
-              "expr": {
-                "Literal": {
-                  "Value": "''"
-                }
-              }
-            },
-            "textWrap": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "default"
-          }
-        },
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "label": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "heading": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Heading3'"
-                }
-              }
-            },
-            "bold": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "textWrap": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "default"
-          }
-        }
-      ],
       "outline": [
         {
           "properties": {
@@ -146,27 +68,38 @@
           }
         }
       ],
-      "cardCalloutArea": [
+      "value": [
         {
           "properties": {
-            "paddingUniform": {
+            "horizontalAlignment": {
               "expr": {
                 "Literal": {
-                  "Value": "50L"
+                  "Value": "'center'"
                 }
               }
             },
-            "paddingIndividual": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#999999'"
+                    }
+                  }
                 }
               }
             },
-            "paddingBottom": {
+            "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "65L"
+                  "Value": "18D"
+                }
+              }
+            },
+            "textWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
@@ -191,30 +124,32 @@
             "id": "default"
           }
         }
-      ]
-    },
-    "visualContainerObjects": {
-      "title": [
+      ],
+      "label": [
         {
           "properties": {
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Market spend of Rev'"
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#999999'"
+                    }
+                  }
                 }
               }
             },
-            "bold": {
+            "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "14D"
                 }
               }
             },
-            "alignment": {
+            "matchValueAlignment": {
               "expr": {
                 "Literal": {
-                  "Value": "'center'"
+                  "Value": "false"
                 }
               }
             },
@@ -225,10 +160,15 @@
                 }
               }
             }
+          },
+          "selector": {
+            "id": "default"
           }
         }
-      ],
-      "subTitle": [
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
         {
           "properties": {
             "show": {
@@ -242,6 +182,19 @@
         }
       ],
       "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
         {
           "properties": {
             "show": {
