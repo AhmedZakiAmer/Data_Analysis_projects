@@ -234,9 +234,12 @@ table 'dim vStore'
 		source =
 				let
 				  Source = Sql.Database("localhost\SQLEXPRESS", "ContosoRetailDW"),
-				  #"Navigation 1" = Source{[Schema = "dim", Item = "vStore"]}[Data]
+				  #"Navigation 1" = Source{[Schema = "dim", Item = "vStore"]}[Data],
+				    #"Replaced Value" = Table.ReplaceValue(#"Navigation 1","Contoso ","",Replacer.ReplaceText,{"StoreName"})
 				in
-				  #"Navigation 1"
+				    #"Replaced Value"
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 

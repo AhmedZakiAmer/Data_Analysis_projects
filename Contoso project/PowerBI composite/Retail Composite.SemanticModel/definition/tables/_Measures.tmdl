@@ -22,7 +22,7 @@ table _Measures
 			    SUM('fact vOnlineSales'[ReturnAmount]) 
 			    + SUM('fact vStoreSales'[ReturnAmount])
 			```
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: CFO\Others
 		lineageTag: 6bba15b1-94d4-49e5-8511-3d318f3a742e
 
@@ -203,9 +203,7 @@ table _Measures
 		displayFolder: CFO\profitability
 		lineageTag: 0ff7d0cb-1268-438a-a517-992c827679de
 
-	measure 'Return Rate' =
-			
-			DIVIDE ( [tot_Returns_amount], [Total Revenue] )
+	measure 'Return Rate' = DIVIDE ( [tot_Returns_amount], [Total Revenue] )
 		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: CFO\Others
 		lineageTag: 477a99a0-cb62-43c3-ac35-ae97ce2f5b73
@@ -293,6 +291,11 @@ table _Measures
 		lineageTag: d0971b2a-6f75-446b-a306-950a510ab75d
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Gross Margin Vs Benchmark' = [Gross Margin %] - 0.38
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: CFO\profitability
+		lineageTag: a3b8da25-bd2d-4d0e-ac31-f42576d15c47
 
 	partition _Measures = m
 		mode: import

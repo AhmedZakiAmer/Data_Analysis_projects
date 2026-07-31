@@ -4,8 +4,8 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 892.98756657830188,
-        "y": 377.10622292623265
+        "x": 4419.0483906403088,
+        "y": 134.85234837049393
       },
       "nodes": [
         {
@@ -140,8 +140,8 @@
         },
         {
           "location": {
-            "x": 2840,
-            "y": 43.426174185246964
+            "x": 3320.093031,
+            "y": 980.5819431852467
           },
           "nodeIndex": "dim vStore",
           "nodeLineageTag": "95d0e702-ce72-41eb-bc77-5a9450d864f1",
@@ -308,7 +308,7 @@
         }
       ],
       "name": "All tables",
-      "zoomValue": 79.553182037699827,
+      "zoomValue": 56.447393005377755,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
@@ -424,7 +424,7 @@
       "ordinal": 2,
       "scrollPosition": {
         "x": 0,
-        "y": 0.828187931804049
+        "y": 0
       },
       "nodes": [
         {
@@ -1104,6 +1104,6 @@
       "tablesLocked": false
     }
   ],
-  "selectedDiagram": "SalesQuota",
+  "selectedDiagram": "All tables",
   "defaultDiagram": "All tables"
 }

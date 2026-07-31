@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "8626206d5a7e6d074030",
+  "name": "1aa24d2a05c00db81046",
   "position": {
     "x": 1280,
-    "y": 669.17933130699089,
-    "z": 10000,
-    "height": 410.45592705167172,
+    "y": 670,
+    "z": 18000,
+    "height": 410,
     "width": 640,
-    "tabOrder": 10000
+    "tabOrder": 18000
   },
   "visual": {
     "visualType": "lineChart",
@@ -133,10 +133,25 @@
                 }
               }
             },
-            "end": {
+            "start": {
               "expr": {
                 "Literal": {
-                  "Value": "500000000D"
+                  "Value": "400000000D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Highest 7 Sales stores '"
                 }
               }
             }
@@ -149,7 +164,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "27815e1029e1b0bac0ac",
+        "name": "402d49ac62a9b07d3b34",
         "field": {
           "Column": {
             "Expression": {
@@ -215,7 +230,7 @@
                         }
                       }
                     ],
-                    "Top": 15
+                    "Top": 8
                   }
                 }
               },
