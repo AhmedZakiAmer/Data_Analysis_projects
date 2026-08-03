@@ -1,7 +1,7 @@
 # Project Title: Retail Contoso Analysis
 
 # Project Overview:
-Analysis of a large scale retail dataset (30M rows, 11 fact tables, 12 dimension tables) 
+Analysis of a large scale retail dataset (30M rows, 11 fact tables, 12 dimension tables ![tables](MOdel_View.png)) 
 built to deliver insights across executive stakeholders using Power BI and SQL Server.
 Period: 2023 to 2025
 
