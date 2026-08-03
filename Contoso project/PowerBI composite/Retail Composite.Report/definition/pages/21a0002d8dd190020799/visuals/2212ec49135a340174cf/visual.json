@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "2212ec49135a340174cf",
   "position": {
     "x": 379.3313069908815,
@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 258.72340425531917,
     "width": 385.16717325227967,
-    "tabOrder": 6000
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,7 +23,7 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Tot. Gross Profit"
+                  "Property": "Total Profit"
                 }
               },
               "queryRef": "_Measures.Tot. Gross Profit",
@@ -42,7 +42,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Tot. Gross Profit"
+                "Property": "Total Profit"
               }
             },
             "direction": "Descending"

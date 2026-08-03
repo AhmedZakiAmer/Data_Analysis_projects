@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "0a2d1a352c841a0ecc55",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "e0b71587840370d399c6",
   "position": {
-    "x": 640,
-    "y": 669,
-    "z": 9000,
-    "height": 410,
-    "width": 640,
-    "tabOrder": 9000
+    "x": 1105.3980582524271,
+    "y": 669.20388349514553,
+    "z": 7000,
+    "height": 410.09708737864077,
+    "width": 175.22330097087377,
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "scatterChart",
@@ -83,11 +83,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "CLV"
+                  "Property": "CLV by channel"
                 }
               },
-              "queryRef": "_Measures.CLV",
-              "nativeQueryRef": "CLV"
+              "queryRef": "_Measures.CLV by channel",
+              "nativeQueryRef": "CLV by channel"
             }
           ]
         }
@@ -208,7 +208,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11D"
+                  "Value": "9D"
                 }
               }
             },
@@ -216,6 +216,80 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "gridlineShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "roundRange": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "gridlineShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

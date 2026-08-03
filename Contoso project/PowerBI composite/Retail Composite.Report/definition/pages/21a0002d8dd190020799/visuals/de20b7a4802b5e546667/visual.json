@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "3998a6a100ae64baa171",
+  "name": "de20b7a4802b5e546667",
   "position": {
-    "x": 0,
-    "y": 258.72340425531917,
-    "z": 7000,
-    "height": 410.45592705167172,
+    "x": 1280,
+    "y": 669,
+    "z": 9000,
+    "height": 410,
     "width": 640,
-    "tabOrder": 2000
+    "tabOrder": 9000
   },
   "visual": {
-    "visualType": "waterfallChart",
+    "visualType": "clusteredBarChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim vDate"
+                      "Entity": "dim vProduct"
                     }
                   },
-                  "Property": "CalendarYear"
+                  "Property": "CategoryName"
                 }
               },
-              "queryRef": "dim vDate.CalendarYear",
-              "nativeQueryRef": "Sum of CalendarYear",
+              "queryRef": "dim vProduct.CategoryName",
+              "nativeQueryRef": "CategoryName",
               "active": true
             }
           ]
@@ -42,11 +42,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total Net Rev"
+                  "Property": "Total Return Amounts"
                 }
               },
-              "queryRef": "_Measures.Total Net Rev",
-              "nativeQueryRef": "Total Net Rev"
+              "queryRef": "_Measures.Total Return Amounts",
+              "nativeQueryRef": "Total Return Amounts"
             },
             {
               "field": {
@@ -61,6 +61,29 @@
               },
               "queryRef": "_Measures.Total Discount Amount",
               "nativeQueryRef": "Total Discount Amount"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact vReturns"
+                        }
+                      },
+                      "Property": "ReturnQuantity"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fact vReturns.ReturnQuantity)",
+              "nativeQueryRef": "Sum of ReturnQuantity"
             },
             {
               "field": {
@@ -70,29 +93,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "tot_Returns_amount"
+                  "Property": "Total discount quantity"
                 }
               },
-              "queryRef": "_Measures.tot_Returns_amount",
-              "nativeQueryRef": "tot_Returns_amount"
-            }
-          ]
-        },
-        "Y": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Total Revenue"
-                }
-              },
-              "queryRef": "_Measures.Total Revenue",
-              "nativeQueryRef": "Total Revenue"
+              "queryRef": "_Measures.Total discount quantity",
+              "nativeQueryRef": "Total discount quantity"
             }
           ]
         }
@@ -101,13 +106,18 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Aggregation": {
                 "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Measures"
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fact vReturns"
+                      }
+                    },
+                    "Property": "ReturnQuantity"
                   }
                 },
-                "Property": "Total Revenue"
+                "Function": 0
               }
             },
             "direction": "Descending"
@@ -115,43 +125,6 @@
         ],
         "isDefaultSort": true
       }
-    },
-    "objects": {
-      "valueAxis": [
-        {
-          "properties": {
-            "roundRange": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
-    "visualContainerObjects": {
-      "title": [
-        {
-          "properties": {
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Rev over years'"
-                }
-              }
-            },
-            "alignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'center'"
-                }
-              }
-            }
-          }
-        }
-      ]
     },
     "drillFilterOtherVisuals": true
   }

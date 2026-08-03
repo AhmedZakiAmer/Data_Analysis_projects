@@ -8,7 +8,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["dim vAcquisitionChannel","dim vChannel","dim vCurrency","dim vCustomer","dim vDate","dim vEmployee","dim vPaymentMethod","dim vProduct","dim vPromotion","dim vReturnReason","dim vStore","fact vInventory","fact vOnlineSales","fact vCustomerAcquisition","fact vCustomerSurvey","fact vExchangeRate","fact vMarketingSpend","fact vOrderFulfillment","fact vOrderPayment","fact vReturns","fact vSalesQuota","fact vStoreSales","_Measures"]
+annotation PBI_QueryOrder = ["dim vAcquisitionChannel","dim vChannel","dim vCurrency","dim vCustomer","dim vDate","dim vEmployee","dim vPaymentMethod","dim vProduct","dim vPromotion","dim vReturnReason","dim vStore","fact vInventory","fact vOnlineSales","fact vCustomerAcquisition","fact vCustomerSurvey","fact vExchangeRate","fact vMarketingSpend","fact vOrderFulfillment","fact vOrderPayment","fact vReturns","fact vSalesQuota","fact vStoreSales","_Measures","dim vRevenueByChannels"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
@@ -27,7 +27,6 @@ ref table 'fact vInventory'
 ref table 'fact vOnlineSales'
 ref table 'fact vCustomerAcquisition'
 ref table DateTableTemplate_3668dbba-48ff-4930-a8ff-fd05b6b9ee8f
-ref table LocalDateTable_ee0eb81f-4cc8-4bfe-b8ed-6ec8b7bc79ab
 ref table 'fact vCustomerSurvey'
 ref table LocalDateTable_090a1313-382e-4c3d-bf7f-1f10ba701df4
 ref table 'fact vExchangeRate'
@@ -48,6 +47,8 @@ ref table LocalDateTable_d2890beb-b4bc-4a33-9c84-b1745f67212b
 ref table 'fact vStoreSales'
 ref table LocalDateTable_4bc54fb1-3572-43f4-924a-35d06598a2b4
 ref table _Measures
+ref table 'dim vRevenueByChannels'
+ref table 'Waterfall Steps'
 
 ref cultureInfo en-US
 

@@ -244,9 +244,13 @@ table 'dim vProduct'
 		source =
 				let
 				  Source = Sql.Database("localhost\SQLEXPRESS", "ContosoRetailDW"),
-				  #"Navigation 1" = Source{[Schema = "dim", Item = "vProduct"]}[Data]
+				  #"Navigation 1" = Source{[Schema = "dim", Item = "vProduct"]}[Data],
+				    #"Filtered Rows" = Table.SelectRows(#"Navigation 1", each true),
+				    #"Trimmed Text" = Table.TransformColumns(#"Filtered Rows",{{"CategoryName", Text.Trim, type text}})
 				in
-				  #"Navigation 1"
+				  #"Trimmed Text"
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 

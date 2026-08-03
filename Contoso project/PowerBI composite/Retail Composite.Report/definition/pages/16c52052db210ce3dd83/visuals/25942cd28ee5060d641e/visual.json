@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "25942cd28ee5060d641e",
   "position": {
-    "x": 764,
+    "x": 762,
     "y": 0,
     "z": 6000,
     "height": 160,
-    "width": 386,
+    "width": 390,
     "tabOrder": 2000
   },
   "visual": {
@@ -157,6 +157,20 @@
           },
           "selector": {
             "metadata": "_Measures.Gross Margin %"
+          }
+        },
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
           }
         }
       ],

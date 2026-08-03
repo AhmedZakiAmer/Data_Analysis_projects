@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "7e3270f8e6c5c0015093",
+  "name": "2fe3de7a086b70798a20",
   "position": {
-    "x": 640,
+    "x": 1280,
     "y": 258,
-    "z": 10000,
-    "height": 412,
+    "z": 25000,
+    "height": 422,
     "width": 640,
-    "tabOrder": 0
+    "tabOrder": 25000
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "clusteredColumnChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,15 +20,30 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim vProduct"
+                      "Entity": "dim vStore"
                     }
                   },
-                  "Property": "CategoryName"
+                  "Property": "StoreContinent"
                 }
               },
-              "queryRef": "dim vProduct.CategoryName",
-              "nativeQueryRef": "CategoryName",
+              "queryRef": "dim vStore.StoreContinent",
+              "nativeQueryRef": "StoreContinent",
               "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim vStore"
+                    }
+                  },
+                  "Property": "StoreCountry"
+                }
+              },
+              "queryRef": "dim vStore.StoreCountry",
+              "nativeQueryRef": "StoreCountry",
+              "active": false
             }
           ]
         },
@@ -64,17 +79,23 @@
                 "Property": "Gross Margin %"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
-        ],
-        "isDefaultSort": true
+        ]
       }
     },
     "objects": {
       "valueAxis": [
         {
           "properties": {
-            "logAxisScale": {
+            "roundRange": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "gridlineShow": {
               "expr": {
                 "Literal": {
                   "Value": "false"
@@ -91,14 +112,47 @@
             "end": {
               "expr": {
                 "Literal": {
-                  "Value": "0.6D"
+                  "Value": "0.55D"
                 }
               }
             },
             "start": {
               "expr": {
                 "Literal": {
-                  "Value": "0.4D"
+                  "Value": "0.45D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             },
@@ -113,13 +167,6 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
-                }
-              }
-            },
-            "gridlineShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
                 }
               }
             }
@@ -141,7 +188,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Gross Margin '"
+                  "Value": "'Gross Margin'"
                 }
               }
             }
@@ -155,6 +202,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'center'"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'by Store Continent and  Store Country'"
                 }
               }
             }

@@ -17,7 +17,7 @@ table _Measures
 		displayFolder: CFO\Revenue
 		lineageTag: 24e40462-3e23-4952-bbe6-2110fa1ea399
 
-	measure tot_Returns_amount = ```
+	measure 'Total Return Amounts' = ```
 			
 			    SUM('fact vOnlineSales'[ReturnAmount]) 
 			    + SUM('fact vStoreSales'[ReturnAmount])
@@ -184,7 +184,7 @@ table _Measures
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 'Tot. Gross Profit' = ```
+	measure 'Total Profit' = ```
 			
 			    VAR online_profit = SUM('fact vOnlineSales'[GrossProfit])
 			    VAR stores_profit = SUM('fact vStoreSales'[GrossProfit])
@@ -197,13 +197,13 @@ table _Measures
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
 	measure 'Gross Margin %' = ```
-			DIVIDE([Tot. Gross Profit], [Total Revenue]) 
+			DIVIDE([Total Profit], [Total Revenue]) 
 			```
 		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: CFO\profitability
 		lineageTag: 0ff7d0cb-1268-438a-a517-992c827679de
 
-	measure 'Return Rate' = DIVIDE ( [tot_Returns_amount], [Total Revenue] )
+	measure 'Return Rate' = DIVIDE ( [Total Return Amounts], [Total Revenue] )
 		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: CFO\Others
 		lineageTag: 477a99a0-cb62-43c3-ac35-ae97ce2f5b73
@@ -245,7 +245,7 @@ table _Measures
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 'test Rev' = [tot_Returns_amount] + [Total Discount Amount] + [Total Net Rev]
+	measure 'test Rev' = [Total Return Amounts] + [Total Discount Amount] + [Total Net Rev]
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		displayFolder: CFO\Others
 		lineageTag: 13d0cad5-96dc-4dc4-a411-d29052b6d073
@@ -268,22 +268,30 @@ table _Measures
 	measure CAC = ```
 			
 			    VAR market_Spend = [Total Market Spend]
-			    VAR new_Castomer = COUNT('fact vMarketingSpend'[NewCustomersAcquired])
+			    VAR new_Castomer = SUM('fact vMarketingSpend'[NewCustomersAcquired])
 			RETURN DIVIDE(market_Spend,new_Castomer)
 			```
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		displayFolder: CFO\Customers
 		lineageTag: b2db0ea1-f2b9-4434-9348-dbd0cc4d5dc1
 
-	measure CLV = DIVIDE([Online Revenue],[Number of customer])
-		formatString: 0
+	measure 'Historical CLV' =
+			
+			DIVIDE(
+			    sum('fact vOnlineSales'[SalesAmount]),
+			    SUM('dim vRevenueByChannels'[CustomersNumber])
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		displayFolder: CFO\Customers
 		lineageTag: 0c6d0c9b-8375-4cab-8026-1873b274c055
 
-	measure 'CAC To CLV Ratio' = DIVIDE([CAC],[CLV])
-		formatString: 0.00%;-0.00%;0.00%
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'CAC To CLV Ratio' = DIVIDE([Historical CLV],[CAC])
 		displayFolder: CFO\Customers
 		lineageTag: 1c8efbe9-2359-4c88-b043-198177300eb3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Short Store Name' = [test Rev]
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
@@ -301,6 +309,78 @@ table _Measures
 		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: CFO\Revenue
 		lineageTag: e2445641-d0ea-4272-bd82-3fab2ace6319
+
+	measure 'Marketing Distinct Keys' = DISTINCTCOUNT('fact vMarketingSpend'[AcquisitionChannelKey])
+		formatString: 0
+		displayFolder: Tries & tests
+		lineageTag: 6572386f-4971-45f9-932d-b68718d2b0fc
+
+	measure 'Channel Distinct Keys' = DISTINCTCOUNT('dim vAcquisitionChannel'[AcquisitionChannelKey])
+		formatString: 0
+		displayFolder: Tries & tests
+		lineageTag: a709fe62-8b4b-43ce-ad43-b8cd1eedd689
+
+	measure 'Test Except' = COUNTROWS(EXCEPT(VALUES('fact vMarketingSpend'[AcquisitionChannelKey]), VALUES('dim vAcquisitionChannel'[AcquisitionChannelKey])))
+		formatString: 0
+		displayFolder: Tries & tests
+		lineageTag: 4f5920af-7a0b-47a3-b08c-61152c52faa9
+
+	measure 'CLV by channel' = ```
+			
+			    var customersByChannel = COUNTX('fact vCustomerAcquisition','fact vCustomerAcquisition'[AcquisitionChannelKey])
+			return DIVIDE([Online Revenue],customersByChannel)
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: CFO\Customers
+		lineageTag: 5a9e601d-63e7-42ad-bcc3-f7d58c03ee3d
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Customers By Channel' = COUNTX('fact vCustomerAcquisition','fact vCustomerAcquisition'[AcquisitionChannelKey])
+		formatString: 0
+		displayFolder: CFO\Customers
+		lineageTag: 2bfed917-cc45-4ab2-8059-02dd9bbdc87e
+
+	measure 'CAC To CLVChannel Ratio' = DIVIDE([CAC],[CLV by channel])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Tries & tests
+		lineageTag: 707929af-e8df-4e0d-b279-a0b9bef180eb
+
+	measure CLVV = sum('dim vRevenueByChannels'[TotalRevenue])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: Tries & tests
+		lineageTag: 1b6ad093-df79-444c-b3fa-d6e3af26e338
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure cu = sum('dim vRevenueByChannels'[CustomersNumber])
+		formatString: 0
+		displayFolder: Tries & tests
+		lineageTag: 20cf1cb5-319d-4bfc-b64a-d665a899e4cd
+
+	measure 'Total discount quantity' = SUM('fact vOnlineSales'[DiscountQuantity]) + SUM('fact vStoreSales'[DiscountQuantity])
+		formatString: 0
+		displayFolder: CFO\Others
+		lineageTag: 61f6e508-f09a-48d5-a364-73e4a8043470
+
+	measure 'Waterfall Value' =
+			
+			SWITCH(
+			    SELECTEDVALUE('Waterfall Steps'[Step]),
+			
+			    "Budget", -[Total Revenue],
+			
+			    "Discount", [Total Discount Amount],
+			
+			    "Returns", [Total Return Amounts],
+			
+			    "Actual", -[Total Net Rev]
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: Tries & tests
+		lineageTag: 33de7cbb-59cc-457f-b247-76a9b849e8ec
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
 	partition _Measures = m
 		mode: import

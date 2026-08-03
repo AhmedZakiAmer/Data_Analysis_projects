@@ -4,10 +4,10 @@
   "position": {
     "x": 1534,
     "y": 186,
-    "z": 19000,
+    "z": 17000,
     "height": 48,
     "width": 386,
-    "tabOrder": 19000
+    "tabOrder": 17000
   },
   "visual": {
     "visualType": "textbox",
@@ -19,11 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "Within target band",
+                    "value": "Under target band",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontSize": "18pt",
-                      "color": "#58a700"
+                      "color": "#bdfb78"
                     }
                   }
                 ],

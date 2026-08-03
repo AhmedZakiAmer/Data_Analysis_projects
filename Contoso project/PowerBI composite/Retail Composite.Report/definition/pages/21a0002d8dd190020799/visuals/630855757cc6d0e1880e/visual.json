@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "630855757cc6d0e1880e",
   "position": {
     "x": 1280,
     "y": 258.72340425531917,
-    "z": 8000,
+    "z": 5000,
     "height": 410.45592705167172,
     "width": 640,
-    "tabOrder": 8000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "lineChart",
@@ -43,24 +43,6 @@
             }
           ]
         },
-        "Series": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim vAcquisitionChannel"
-                    }
-                  },
-                  "Property": "ChannelName"
-                }
-              },
-              "queryRef": "dim vAcquisitionChannel.ChannelName",
-              "nativeQueryRef": "ChannelName"
-            }
-          ]
-        },
         "Y": {
           "projections": [
             {
@@ -71,11 +53,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "CAC To CLV Ratio"
+                  "Property": "CAC"
                 }
               },
-              "queryRef": "_Measures.CAC To CLV Ratio",
-              "nativeQueryRef": "CAC To CLV Ratio"
+              "queryRef": "_Measures.CAC",
+              "nativeQueryRef": "CAC"
             }
           ]
         }

@@ -4,8 +4,8 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 4854.8523966403091,
-        "y": 134.63863599999996
+        "x": 1747.5731025762293,
+        "y": 0
       },
       "nodes": [
         {
@@ -101,8 +101,8 @@
         },
         {
           "location": {
-            "x": 1988,
-            "y": 43.426174185246964
+            "x": 2203.6279715275509,
+            "y": 593.06610160841592
           },
           "nodeIndex": "dim vProduct",
           "nodeLineageTag": "a65c9b7b-c9fc-4bde-9ea9-78dc1b628db9",
@@ -305,10 +305,38 @@
             "width": 234
           },
           "zIndex": 19
+        },
+        {
+          "location": {},
+          "nodeIndex": "dim vRevenueByChannels",
+          "nodeLineageTag": "6c557253-b21a-4f0d-ba37-ef12f791c1d3",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "Waterfall Steps",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "Waterfall-Steps",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",
-      "zoomValue": 56.447393005377755,
+      "zoomValue": 70.955543900968863,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
@@ -317,8 +345,8 @@
     {
       "ordinal": 1,
       "scrollPosition": {
-        "x": 0,
-        "y": 234.707651417438
+        "x": 163.7495242447242,
+        "y": 72.049789626587213
       },
       "nodes": [
         {
@@ -332,7 +360,7 @@
             "height": 176,
             "width": 234
           },
-          "zIndex": 1
+          "zIndex": 6
         },
         {
           "location": {
@@ -345,7 +373,7 @@
             "height": 740.41610738255031,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 1
         },
         {
           "location": {
@@ -358,7 +386,7 @@
             "height": 176,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 2
         },
         {
           "location": {
@@ -371,7 +399,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 3
         },
         {
           "location": {
@@ -384,7 +412,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 4
         },
         {
           "location": {
@@ -397,7 +425,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 5
         },
         {
           "location": {
@@ -410,7 +438,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 7
         }
       ],
       "name": "StoreSales",
@@ -424,7 +452,7 @@
       "ordinal": 2,
       "scrollPosition": {
         "x": 0,
-        "y": 0
+        "y": 103.52348993288592
       },
       "nodes": [
         {
@@ -798,7 +826,7 @@
       "ordinal": 7,
       "scrollPosition": {
         "x": 0,
-        "y": 0
+        "y": 100
       },
       "nodes": [
         {
@@ -812,7 +840,7 @@
             "height": 406,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 1
         },
         {
           "location": {
@@ -825,7 +853,7 @@
             "height": 274,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 2
         },
         {
           "location": {
@@ -836,6 +864,19 @@
           "nodeLineageTag": "dd25f69c-b0f6-4a53-878f-c1cf0e693cab",
           "size": {
             "height": 381,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 632.20000076293945,
+            "y": 340
+          },
+          "nodeIndex": "dim vRevenueByChannels",
+          "nodeLineageTag": "6c557253-b21a-4f0d-ba37-ef12f791c1d3",
+          "size": {
+            "height": 176,
             "width": 234
           },
           "zIndex": 0
@@ -1040,7 +1081,7 @@
       "ordinal": 11,
       "scrollPosition": {
         "x": 0,
-        "y": 18.399999618530273
+        "y": 75.199996948242188
       },
       "nodes": [
         {
@@ -1054,12 +1095,12 @@
             "height": 317,
             "width": 234
           },
-          "zIndex": 1
+          "zIndex": 4
         },
         {
           "location": {
-            "x": 634.20000076293945,
-            "y": 0
+            "x": 629.20000076293945,
+            "y": 156
           },
           "nodeIndex": "dim vDate",
           "nodeLineageTag": "dd25f69c-b0f6-4a53-878f-c1cf0e693cab",
@@ -1067,7 +1108,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 2
+          "zIndex": 1
         },
         {
           "location": {
@@ -1080,12 +1121,12 @@
             "height": 248,
             "width": 234
           },
-          "zIndex": 3
+          "zIndex": 2
         },
         {
           "location": {
-            "x": 629.20000076293945,
-            "y": 364
+            "x": 18.200000762939453,
+            "y": 331
           },
           "nodeIndex": "dim vCustomer",
           "nodeLineageTag": "f9b0e047-6b8c-4f83-9002-b94c3720b735",
@@ -1093,10 +1134,10 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 4
+          "zIndex": 3
         }
       ],
-      "name": "CustAcquistion(notC)",
+      "name": "CustAcquistion",
       "zoomValue": 100,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
@@ -1104,6 +1145,6 @@
       "tablesLocked": false
     }
   ],
-  "selectedDiagram": "All tables",
+  "selectedDiagram": "OnlineSales",
   "defaultDiagram": "All tables"
 }

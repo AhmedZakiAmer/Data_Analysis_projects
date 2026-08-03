@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "a1190b53d8015a3a5661",
   "position": {
     "x": 960.97264437689978,
@@ -24,7 +24,7 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Tot. Gross Profit"
+                  "Property": "Total Profit"
                 }
               },
               "queryRef": "_Measures.Tot. Gross Profit",
